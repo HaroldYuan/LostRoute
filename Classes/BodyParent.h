@@ -1,29 +1,41 @@
-#ifndef _Body_Parent 
-#define _Body_Parent
+//
+//  BodyParent.h
+//  starwar
+//
+//  Created by æå® on 15/7/7.
+//
+//
+
+#ifndef __starwar__BodyParent__
+#define __starwar__BodyParent__
 #include "cocos2d.h"
+
+
 USING_NS_CC;
-
-//¶¨ÒåÁË¸ÕÌå(Body)ÖĞ¹«ÓÃµÄ·½·¨ºÍ³ÉÔ±±äÁ¿
-class BodyParent :public Sprite
+//  å®šä¹‰äº†åˆšä½“ï¼ˆBodyï¼‰ä¸­å…¬ç”¨çš„æ–¹æ³•å’Œæˆå‘˜å˜é‡
+class BodyParent : public Sprite
 {
+    
 public:
-	int hp=1;     //µ±Ç°BodyµÄÉúÃüÖµ
-	int maxHP=1;   //µ±Ç°BodydµÄ×î´óÉúÃüÖµ
-	bool selected=false;     //µ±Ç°ÊÇ·ñ±»µ¼µ¯Ñ¡ÖĞ
-	BodyParent* node=nullptr; //±£´æÓÚµ±Ç°Body¹ØÁªµÄNode
-	BodyParent* missle=nullptr;
-
-	bool isWeapon;
-
+    int hp = 1;  //  å½“å‰Bodyçš„ç”Ÿå‘½å€¼
+    int maxHP = 1;  //  æœ€å¤§Bodyçš„ç”Ÿå‘½å€¼
+    bool selected = false;  //  å½“å‰è¢«å¯¼å¼¹é€‰ä¸­
+    BodyParent* node = nullptr;  // ä¿å­˜ä¸å½“å‰Bodyç›¸å…³çš„Node
+    BodyParent* missile = nullptr;
+    bool isWeapon = false;
 public:
-
-	//ÓÃÓÚ²úÉú±¬Õ¨Ğ§¹ûµÄÌØĞ§
-	virtual void explode();
-
-	//lethality±íÊ¾É±ÉËÁ¦Ö¸Êı£¬¾ÍÊÇÁíÍâÒ»¸öBodyµÄhpÖµ
-	virtual bool collide(int lethality);
-
-	//ÔÚÈÎºÎÇé¿öÏÂ£¬Ò»´ÎĞÔ´İ»ÙBody,Í¨³£ÓÃÓÚµ¼µ¯
-	virtual void collide();
+    //  ç”¨äºäº§ç”Ÿçˆ†ç‚¸æ•ˆæœçš„ç‰¹æ•ˆï¼Œä¸ä¸€å®šæ¯ä¸€ä¸ªBodyéƒ½å®ç°
+    virtual void explode();
+    //  ä¸åŒçš„bodyï¼Œå¯èƒ½ç¢°æ’ä¸€æ¬¡ä¸ä¼šè¢«æ‘§æ¯ï¼Œæ‰€æœ‰çš„Bodyå¿…é¡»å®ç°
+    //  lethalityè¡¨ç¤ºæ€ä¼¤åŠ›æŒ‡æ•°ï¼Œå½“ä¸¤ä¸ªBodyç¢°æ’æ—¶ï¼Œéœ€è¦è€ƒè™‘è¿™ä¸¤ä¸ªBodyçš„æ€ä¼¤åŠ›æŒ‡æ•°ï¼Œå¦‚æœæ€ä¼¤åŠ›æŒ‡æ•°ç›¸åŒ
+    //  åŒå½’äºå°½ï¼Œå¦åˆ™ï¼Œæ€ä¼¤åŠ›æŒ‡æ•°å°çš„Bodyè¢«é”€æ¯ã€‚æ€ä¼¤åŠ›å¤§çš„Bodyçš„hpä¹ŸåŒæ—¶ä¼šå‡å°
+    virtual bool collide(int lethality);
+    //  åœ¨ä»»ä½•æƒ…å†µä¸‹ï¼Œä¸€æ¬¡æ€§æ‘§æ¯bodyã€‚é€šå¸¸ç”¨äºæ ¸å¼¹ã€‚
+    virtual void collide();
+    
+    
 };
-#endif // _Body_Parent
+
+
+
+#endif /* defined(__starwar__BodyParent__) */

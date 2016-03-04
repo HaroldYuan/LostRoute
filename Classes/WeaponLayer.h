@@ -1,20 +1,28 @@
-#ifndef _Weapon_Layer 
-#define _Weapon_Layer 
-#include "Resources.h"
+//
+//  WeaponLayer.h
+//  starwar
+//
+//  Created by 鏉庡畞 on 15/7/7.
+//
+//
+
+#ifndef __starwar__WeaponLayer__
+#define __starwar__WeaponLayer__
+
 #include "cocos2d.h"
 USING_NS_CC;
-
-class WeaponLayer :public Layer
+class WeaponLayer : public Layer
 {
 public:
-	WeaponLayer();
-	~WeaponLayer();
-
-	virtual bool init();
-	void weaponMovedFinished(Node* sender);
-	CREATE_FUNC(WeaponLayer);
-
+    __Array *weaponContainer;
+    
 public:
-	__Array *weaponContainer;  //保存当前所有正在飞行的武器
+    WeaponLayer();
+    ~WeaponLayer();
+    virtual bool init();
+    void weaponMovedFinished(Node* sender);
+    CREATE_FUNC(WeaponLayer)
 };
-#endif // _Weapon_Layer
+
+
+#endif /* defined(__starwar__WeaponLayer__) */
