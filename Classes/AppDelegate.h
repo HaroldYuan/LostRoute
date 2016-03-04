@@ -2,20 +2,18 @@
 #define  _APP_DELEGATE_H_
 
 #include "cocos2d.h"
+#include "Resources.h"
 
 /**
 @brief    The cocos2d Application.
 
 The reason for implement as private inheritance is to hide some interface call by Director.
 */
-//  创建Drop类
 class  AppDelegate : private cocos2d::Application
 {
 public:
     AppDelegate();
     virtual ~AppDelegate();
-
-    virtual void initGLContextAttrs();
 
     /**
     @brief    Implement Director and Scene init code here.

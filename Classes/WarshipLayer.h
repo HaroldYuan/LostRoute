@@ -1,36 +1,23 @@
-//
-//  WarshipLayer.h
-//  starwar
-//
-//  Created by 李宁 on 15/7/7.
-//
-//
-
-#ifndef __starwar__WarshipLayer__
-#define __starwar__WarshipLayer__
-#include <iostream>
+#ifndef WarshipLayer_h__
+#define WarshipLayer_h__
 #include "cocos2d.h"
+#include "Resources.h"
 #include "Warship.h"
-#include "EnemyLayer.h"
-#include "Missile.h"
 USING_NS_CC;
-class WarshipLayer : public Layer
+
+class WarshipLayer:public Layer
 {
-private:
-    WeaponLayer* mWeaponLayer;
-private:
-    //  用于为导弹随机选择目标敌机
-    void shootMissile(float dt);
 public:
-    Warship* warship;
-    EnemyLayer* enemyLayer;
+	virtual bool init();
+
+	void setWeaponLayer(WeaponLayer* weaponLayer);
+
+	CREATE_FUNC(WarshipLayer);
+
 public:
-    virtual bool init();
-    //  跟踪目标敌机（计算飞行路径）
-    void missileMovedFinished(Node* sender);
-    void setWeaponLayer(WeaponLayer* weaponLayer);
-    CREATE_FUNC(WarshipLayer)
+	Warship* warship;
+
+private:
+	WeaponLayer* mWeaponLayer;
 };
-
-
-#endif /* defined(__starwar__WarshipLayer__) */
+#endif // WarshipLayer_h__

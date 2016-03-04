@@ -1,25 +1,21 @@
-//
-//  WarshipWeapon2.h
-//  starwar
-//
-//  Created by 鏉庡畞 on 15/7/7.
-//
-//
+#ifndef WarshipWeapon2_h__
+#define WarshipWeapon2_h__
 
-#ifndef __starwar__WarshipWeapon2__
-#define __starwar__WarshipWeapon2__
-
-#include <iostream>
 #include "cocos2d.h"
+#include "Resources.h"
 #include "BodyParent.h"
 USING_NS_CC;
-using namespace std;
-class WarshipWeapon2 : public BodyParent
-{
+
+class WarshipWeapon2:public BodyParent{
 public:
-    virtual bool init();
-    CREATE_FUNC(WarshipWeapon2)
+	virtual bool init();
+
+	void setAngleIndex(int index);
+
+	int  getAngle(int index);
+
+	CREATE_FUNC(WarshipWeapon2);
+private:
+	int angles[5]; //存储每一路光子鱼雷的角度
 };
-
-
-#endif /* defined(__starwar__WarshipWeapon2__) */
+#endif // WarshipWeapon2_h__

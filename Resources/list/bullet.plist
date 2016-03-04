@@ -7,33 +7,33 @@
             <key>warship_bullet_1.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,70},{29,105}}</string>
+                <string>{{32,26},{17,60}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{29,105}}</string>
+                <string>{{0,0},{17,60}}</string>
                 <key>sourceSize</key>
-                <string>{29,105}</string>
+                <string>{17,60}</string>
             </dict>
             <key>warship_bullet_2.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,2},{36,66}}</string>
+                <string>{{2,2},{22,40}}</string>
                 <key>offset</key>
-                <string>{-3,0}</string>
+                <string>{-2,0}</string>
                 <key>rotated</key>
-                <false/>
+                <true/>
                 <key>sourceColorRect</key>
-                <string>{{29,17},{36,66}}</string>
+                <string>{{17,10},{22,40}}</string>
                 <key>sourceSize</key>
-                <string>{100,100}</string>
+                <string>{60,60}</string>
             </dict>
             <key>warship_bullet_3.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,177},{28,62}}</string>
+                <string>{{2,26},{28,62}}</string>
                 <key>offset</key>
                 <string>{-1,0}</string>
                 <key>rotated</key>
@@ -51,9 +51,9 @@
             <key>realTextureFileName</key>
             <string>bullet.png</string>
             <key>size</key>
-            <string>{40,241}</string>
+            <string>{51,90}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:31b6bee509fc389d212d4454494a82a9$</string>
+            <string>$TexturePacker:SmartUpdate:c3a623374afd7635d22b79f842a841f0$</string>
             <key>textureFileName</key>
             <string>bullet.png</string>
         </dict>

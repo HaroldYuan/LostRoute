@@ -34,7 +34,6 @@ bool LostRouteGameLayer::init(){
 
 	scheduleUpdate();
 
-
 	return true;
 }
 
@@ -52,7 +51,6 @@ void LostRouteGameLayer::moveBackground( Size &size ){
 		auto bg2Y=bg1->getPositionY()+size.height;
 		bg2->setPosition(bg1->getPositionX(),bg2Y);
 	}
-
 
 	//移动云背景
 	bgCloud1->setPosition(bgCloud1->getPositionX(),bgCloud1->getPositionY()
