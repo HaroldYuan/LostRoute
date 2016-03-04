@@ -9,11 +9,12 @@
 #include "WarshipWeapon2.h"
 USING_NS_CC;
 
-class Warship:public BodyParent
+class Warship :public BodyParent
 {
 private:
 	WeaponLayer* myWeaponLayer;
-	int weaponCount;  //武器路数 1 3 5
+	int weaponCount1;  //激光束武器路数    1 3
+	int weaponCount2;  //光子鱼雷武器路数   1 3 5
 public:
 	virtual bool init();
 
@@ -23,7 +24,8 @@ public:
 
 	void repeatShoot1(float dt);
 
-	CREATE_FUNC(Warship);
+	void repeatShoot2(float dt);
 
+	CREATE_FUNC(Warship);
 };
 #endif // Warship_h__

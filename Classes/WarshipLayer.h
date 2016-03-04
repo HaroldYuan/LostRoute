@@ -5,7 +5,7 @@
 #include "Warship.h"
 USING_NS_CC;
 
-class WarshipLayer:public Layer
+class WarshipLayer :public Layer
 {
 public:
 	virtual bool init();

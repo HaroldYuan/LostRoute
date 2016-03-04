@@ -3,10 +3,10 @@
 
 #include "cocos2d.h"
 #include "Resources.h"
-#include "WarshipLayer.h" 
+#include "WarshipLayer.h"
 
 USING_NS_CC;
-class LostRouteGameLayer:public Layer{
+class LostRouteGameLayer :public Layer{
 private:
 	Sprite* bg1;
 	Sprite* bg2;
@@ -23,7 +23,6 @@ public:
 	virtual bool init();
 	virtual void update(float time);
 private:
-
 };
 
 #endif // LostRouteGameLayer_h__

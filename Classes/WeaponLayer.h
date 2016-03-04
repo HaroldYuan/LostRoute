@@ -1,5 +1,5 @@
-#ifndef _Weapon_Layer 
-#define _Weapon_Layer 
+#ifndef _Weapon_Layer
+#define _Weapon_Layer
 #include "Resources.h"
 #include "cocos2d.h"
 USING_NS_CC;

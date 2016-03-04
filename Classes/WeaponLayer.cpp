@@ -6,7 +6,6 @@ WeaponLayer::WeaponLayer(){
 	weaponContainer->retain();
 }
 
-
 bool WeaponLayer::init(){
 	if (!Layer::init()){
 		return false;

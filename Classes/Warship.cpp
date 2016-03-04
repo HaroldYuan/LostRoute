@@ -1,45 +1,45 @@
 #include "Warship.h"
 
 bool Warship::init(){
-	if(!Sprite::init()){
+	if (!Sprite::init()){
 		return false;
 	}
 
-	weaponCount = 5;
+	weaponCount1 = 3;
+	weaponCount2 = 1;
 	auto spriteFrame = SpriteFrameCache::getInstance()->getSpriteFrameByName(PATH_WARSHIP_1_PICTURE);
 	initWithSpriteFrame(spriteFrame);
-	
+
 	//移动飞船
-	auto listener=EventListenerTouchOneByOne::create();
+	auto listener = EventListenerTouchOneByOne::create();
 
 	//使用lambda表达式
-	listener->onTouchBegan=[=](Touch* touch,Event* event){
+	listener->onTouchBegan = [=](Touch* touch, Event* event){
 		return true;
 	};
 
-	listener->onTouchMoved=[](Touch* touch,Event* event){
-		if(Director::getInstance()->isPaused()){
-			return ;
+	listener->onTouchMoved = [](Touch* touch, Event* event){
+		if (Director::getInstance()->isPaused()){
+			return;
 		}
-		auto target=static_cast<Sprite*>(event->getCurrentTarget());
-		target->setPosition(target->getPosition()+touch->getDelta());
+		auto target = static_cast<Sprite*>(event->getCurrentTarget());
+		target->setPosition(target->getPosition() + touch->getDelta());
 	};
 
-	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener,this);
+	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
 
 	hp = WARSHIP_MAX_HP;
 
 	//为飞船创建一种武器（激光束）
-// 	auto weapon=WarshipWeapon1::create();
-// 	weapon->setPosition(100,200);
-// 	addChild(weapon);
+	// 	auto weapon=WarshipWeapon1::create();
+	// 	weapon->setPosition(100,200);
+	// 	addChild(weapon);
 
 	//为飞船创建一种武器（光子鱼雷）
-
-// 	auto weapon=WarshipWeapon2::create();
-// 	weapon->setAngleIndex(1);
-// 	weapon->setPosition(100,200);
-// 	addChild(weapon);
+	// auto weapon=WarshipWeapon2::create();
+	// weapon->setAngleIndex(1);
+	// weapon->setPosition(100,200);
+	//addChild(weapon);
 	return true;
 }
 
@@ -49,8 +49,41 @@ void Warship::setWeaponLayer(WeaponLayer* weaponLayer){
 
 void Warship::repeatShoot1(float dt){
 	auto size = Director::getInstance()->getWinSize();
+	int weaponOffset[] = { 40, 20, 0, -20, -40 }; //激光束距离飞船水平中心点的距离
+	for (int i = 0; i < weaponCount1; i++){
+		auto weapon = WarshipWeapon1::create();
+
+		auto index = i + 2 - weaponCount1 / 2;
+
+		//设置激光束的起始坐标
+		auto weaponStartX = getPositionX() - weaponOffset[index];
+		auto weaponStartY = getPositionY() + getContentSize().height / 3;
+
+		//设置激光束的初始位置
+		weapon->setPosition(weaponStartX, weaponStartY);
+		myWeaponLayer->addChild(weapon);
+		myWeaponLayer->weaponContainer->addObject(weapon);
+
+		//设置激光束移动速度
+		auto moveDuration = 2 * (size.height - weaponStartY) / size.height;
+
+		//设置激光束的终点坐标
+		auto weaponEndX = weaponStartX;
+		auto weaponEndY = size.height + weapon->getContentSize().height / 2;
+
+		//MoveTo动作序列
+		auto actionMove = MoveTo::create(moveDuration, Vec2(weaponEndX, weaponEndY));
+		auto actionDone = CallFuncN::create(CC_CALLBACK_1(WeaponLayer::weaponMovedFinished, myWeaponLayer));
+		auto sequence = Sequence::create(actionMove, actionDone, nullptr);
+		weapon->setVisible(true);
+		weapon->runAction(sequence);
+	}
+}
+
+void Warship::repeatShoot2(float dt){
+	auto size = Director::getInstance()->getWinSize();
 	int weaponOffset[] = { 20, 10, 0, -10, -20 }; //光子鱼雷距离飞船水平中心点的距离
-	for (int i = 0; i < weaponCount; i++){
+	for (int i = 0; i < weaponCount2; i++){
 		auto weapon = WarshipWeapon2::create();
 		//weaponCount=1
 		//index=2
@@ -61,12 +94,14 @@ void Warship::repeatShoot1(float dt){
 		//weaponCount=5
 		//index=0
 
-		auto index = i + 2 - weaponCount / 2;
+		auto index = i + 2 - weaponCount2 / 2;
 		weapon->setAngleIndex(index);
 
 		//设置光子鱼雷的起始坐标
-		auto weaponStartX = getPositionX() +weaponOffset[index];
+		auto weaponStartX = getPositionX() + weaponOffset[index];
 		auto weaponStartY = getPositionY() + getContentSize().height / 3;
+
+		//设置光子鱼雷的初始位置
 		weapon->setPosition(weaponStartX, weaponStartY);
 		myWeaponLayer->addChild(weapon);
 
@@ -89,8 +124,5 @@ void Warship::repeatShoot1(float dt){
 }
 
 void Warship::shoot(){
-	schedule(schedule_selector(Warship::repeatShoot1),0.3);
+	schedule(schedule_selector(Warship::repeatShoot1), 0.3);
 }
-
-
-

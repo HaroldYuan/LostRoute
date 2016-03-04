@@ -7,20 +7,20 @@
             <key>warship_bullet_1.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{32,26},{17,60}}</string>
+                <string>{{2,2},{12,45}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{17,60}}</string>
+                <string>{{0,0},{12,45}}</string>
                 <key>sourceSize</key>
-                <string>{17,60}</string>
+                <string>{12,45}</string>
             </dict>
             <key>warship_bullet_2.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,2},{22,40}}</string>
+                <string>{{16,32},{22,40}}</string>
                 <key>offset</key>
                 <string>{-2,0}</string>
                 <key>rotated</key>
@@ -33,11 +33,11 @@
             <key>warship_bullet_3.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,26},{28,62}}</string>
+                <string>{{16,2},{28,62}}</string>
                 <key>offset</key>
                 <string>{-1,0}</string>
                 <key>rotated</key>
-                <false/>
+                <true/>
                 <key>sourceColorRect</key>
                 <string>{{0,0},{28,62}}</string>
                 <key>sourceSize</key>
@@ -51,9 +51,9 @@
             <key>realTextureFileName</key>
             <string>bullet.png</string>
             <key>size</key>
-            <string>{51,90}</string>
+            <string>{80,56}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:c3a623374afd7635d22b79f842a841f0$</string>
+            <string>$TexturePacker:SmartUpdate:68dd81c133c66fad2d70a81402d1b56e$</string>
             <key>textureFileName</key>
             <string>bullet.png</string>
         </dict>

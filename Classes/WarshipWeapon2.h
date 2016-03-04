@@ -6,7 +6,7 @@
 #include "BodyParent.h"
 USING_NS_CC;
 
-class WarshipWeapon2:public BodyParent{
+class WarshipWeapon2 :public BodyParent{
 public:
 	virtual bool init();
 

@@ -1,4 +1,4 @@
-#ifndef _Body_Parent 
+#ifndef _Body_Parent
 #define _Body_Parent
 #include "cocos2d.h"
 USING_NS_CC;
@@ -17,11 +17,11 @@ public:
 	virtual void explode();
 
 public:
-	int hp=1;     //当前Body的生命值
-	int maxHP=1;   //当前Bodyd的最大生命值
-	bool selected=false;     //当前是否被导弹选中
-	BodyParent* node=nullptr; //保存于当前Body关联的Node
-	BodyParent* missle=nullptr;
+	int hp = 1;     //当前Body的生命值
+	int maxHP = 1;   //当前Bodyd的最大生命值
+	bool selected = false;     //当前是否被导弹选中
+	BodyParent* node = nullptr; //保存于当前Body关联的Node
+	BodyParent* missle = nullptr;
 	bool isWeapon;
 };
 #endif // _Body_Parent

@@ -3,7 +3,7 @@
 
 #include "cocos2d.h"
 USING_NS_CC;
-class LostRouteGameScene:public Scene{
+class LostRouteGameScene :public Scene{
 public:
 	void run();
 };

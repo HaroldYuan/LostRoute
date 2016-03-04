@@ -6,12 +6,12 @@
 #include "BodyParent.h"
 USING_NS_CC;
 
-class WarshipWeapon1:public BodyParent{
+class WarshipWeapon1 :public BodyParent{
 public:
 	virtual bool init();
 
 	CREATE_FUNC(WarshipWeapon1);
-	
+
 public:
 	bool swithweapon;
 };
