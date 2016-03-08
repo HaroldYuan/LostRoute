@@ -29,4 +29,5 @@ void WarshipLayer::setWeaponLayer(WeaponLayer* weaponLayer){
 	mWeaponLayer = weaponLayer;
 	warship->setWeaponLayer(mWeaponLayer);
 	warship->shoot();
+	//scheduleUpdate();
 }

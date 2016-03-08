@@ -18,3 +18,7 @@
 
 //定义PI
 #define  PI 3.14
+
+//定义武器类型
+#define weapon_lasor   1
+#define weapon_torpedo 2

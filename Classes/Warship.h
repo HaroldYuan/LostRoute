@@ -11,10 +11,6 @@ USING_NS_CC;
 
 class Warship :public BodyParent
 {
-private:
-	WeaponLayer* myWeaponLayer;
-	int weaponCount1;  //激光束武器路数    1 3
-	int weaponCount2;  //光子鱼雷武器路数   1 3 5
 public:
 	virtual bool init();
 
@@ -22,10 +18,19 @@ public:
 
 	void shoot();
 
+	//发射激光束
 	void repeatShoot1(float dt);
 
+	//发射光子鱼雷
 	void repeatShoot2(float dt);
 
 	CREATE_FUNC(Warship);
+
+public:
+	int weaponCount1;  //激光束武器路数    1 3
+	int weaponCount2;  //光子鱼雷武器路数   1 3 5
+	int weaponType;    //武器类型 1(激光束） 2(光子鱼雷)
+private:
+	WeaponLayer* myWeaponLayer;
 };
 #endif // Warship_h__

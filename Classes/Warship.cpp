@@ -5,8 +5,9 @@ bool Warship::init(){
 		return false;
 	}
 
-	weaponCount1 = 3;
+	weaponCount1 = 1;
 	weaponCount2 = 1;
+	weaponType = weapon_torpedo;
 	auto spriteFrame = SpriteFrameCache::getInstance()->getSpriteFrameByName(PATH_WARSHIP_1_PICTURE);
 	initWithSpriteFrame(spriteFrame);
 
@@ -30,16 +31,6 @@ bool Warship::init(){
 
 	hp = WARSHIP_MAX_HP;
 
-	//为飞船创建一种武器（激光束）
-	// 	auto weapon=WarshipWeapon1::create();
-	// 	weapon->setPosition(100,200);
-	// 	addChild(weapon);
-
-	//为飞船创建一种武器（光子鱼雷）
-	// auto weapon=WarshipWeapon2::create();
-	// weapon->setAngleIndex(1);
-	// weapon->setPosition(100,200);
-	//addChild(weapon);
 	return true;
 }
 
@@ -118,11 +109,29 @@ void Warship::repeatShoot2(float dt){
 		auto actionDone = CallFuncN::create(CC_CALLBACK_1(WeaponLayer::weaponMovedFinished, myWeaponLayer));
 		auto sequence = Sequence::create(actionMove, actionDone, nullptr);
 		myWeaponLayer->weaponContainer->addObject(weapon);
-		weapon->setVisible(true);
+		//weapon->setVisible(true);
 		weapon->runAction(sequence);
 	}
 }
 
 void Warship::shoot(){
-	schedule(schedule_selector(Warship::repeatShoot1), 0.3);
+	if (weaponType == weapon_lasor){
+		if (isScheduled(schedule_selector(Warship::repeatShoot1))){
+			return;
+		}
+		if (isScheduled(schedule_selector(Warship::repeatShoot2))){
+			unschedule(schedule_selector(Warship::repeatShoot2));
+		}
+		schedule(schedule_selector(Warship::repeatShoot1), 0.3);
+	}
+	else{
+		if (isScheduled(schedule_selector(Warship::repeatShoot2))){
+			return;
+		}
+		if (isScheduled(schedule_selector(Warship::repeatShoot1))){
+			unschedule(schedule_selector(Warship::repeatShoot1));
+		}
+		schedule(schedule_selector(Warship::repeatShoot2), 0.3);
+	}
+	//schedule(schedule_selector(Warship::repeatShoot1), 0.3);
 }
