@@ -56,11 +56,13 @@ void Warship::repeatShoot1(float dt){
 		myWeaponLayer->weaponContainer->addObject(weapon);
 
 		//设置激光束移动速度
-		auto moveDuration = 2 * (size.height - weaponStartY) / size.height;
+		//bug:导致飞机接近屏幕边缘，子弹无法从屏幕移除(飞机接时近边缘时，size.height - weaponStartY为负值）
+		//auto moveDuration = 2 * (size.height - weaponStartY) / size.height;
 
 		//设置激光束的终点坐标
 		auto weaponEndX = weaponStartX;
 		auto weaponEndY = size.height + weapon->getContentSize().height / 2;
+		auto moveDuration = 2 * (weaponEndY - weaponStartY) / size.height;
 
 		//MoveTo动作序列
 		auto actionMove = MoveTo::create(moveDuration, Vec2(weaponEndX, weaponEndY));
@@ -72,8 +74,8 @@ void Warship::repeatShoot1(float dt){
 }
 
 void Warship::repeatShoot2(float dt){
-	auto size = Director::getInstance()->getWinSize();
-	int weaponOffset[] = { 20, 10, 0, -10, -20 }; //光子鱼雷距离飞船水平中心点的距离
+	auto size = Director::getInstance()->getVisibleSize();
+	int weaponOffset[] = { 20, 10, weaponCount2, -10, -20 }; //光子鱼雷距离飞船水平中心点的距离
 	for (int i = 0; i < weaponCount2; i++){
 		auto weapon = WarshipWeapon2::create();
 		//weaponCount=1
@@ -95,20 +97,20 @@ void Warship::repeatShoot2(float dt){
 		//设置光子鱼雷的初始位置
 		weapon->setPosition(weaponStartX, weaponStartY);
 		myWeaponLayer->addChild(weapon);
-
-		//设置光子鱼雷移动速度
-		auto moveDuration = 2 * (size.height - weaponStartY) / size.height;
+		myWeaponLayer->weaponContainer->addObject(weapon);
 
 		//设置光子鱼雷终点坐标
 		auto weaponEndX = getPositionX();
 		auto weaponEndY = size.height + weapon->getContentSize().height / 2;
 		weaponEndX += tan(weapon->getAngle(index)* PI / 180)*(getPositionY() + getContentSize().height / 2);
 
+		//设置光子鱼雷移动速度
+		auto moveDuration = 2 * (weaponEndY - weaponStartY) / size.height;
 		//MoveTo 动作序列
 		auto actionMove = MoveTo::create(moveDuration, Vec2(weaponEndX, weaponEndY));
 		auto actionDone = CallFuncN::create(CC_CALLBACK_1(WeaponLayer::weaponMovedFinished, myWeaponLayer));
 		auto sequence = Sequence::create(actionMove, actionDone, nullptr);
-		myWeaponLayer->weaponContainer->addObject(weapon);
+
 		//weapon->setVisible(true);
 		weapon->runAction(sequence);
 	}
