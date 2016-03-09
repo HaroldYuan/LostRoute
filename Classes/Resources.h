@@ -2,6 +2,11 @@
 #define PATH_WARSHIP_1_PICTURE "warship_1.png"
 #define PATH_WARSHIP_PLIST "list/warship.plist"
 
+//µÐ»úÍ¼Æ¬
+#define  PATH_SMALLENEMY1_PICTURE "enemy_1.png"
+#define  PATH_SMALLENEMY2_PICTURE "enemy_2.png"
+#define  PATH_ENEMY_PLIST        "list/enemy.plist"
+
 //±³¾°Í¼Æ¬
 #define PATH_BACKGROUND_PICTURE "img_bg_level_1.jpg"
 #define PATH_CLOUD_BACKGROUND_PICTURE "cloud_background.png"

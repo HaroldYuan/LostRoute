@@ -25,9 +25,14 @@ bool AppDelegate::applicationDidFinishLaunching() {
 	// set FPS. the default value is 1.0/60 if you don't call this
 	director->setAnimationInterval(1.0 / 60);
 
+	//¼ÓÔØ±³¾°¾«ÁéÖ¡»º´æ
 	SpriteFrameCache::getInstance()->addSpriteFramesWithFile(PATH_IMGBACKGROUND_PLIST);
+	//¼ÓÔØ·É´¬¾«ÁéÖ¡»º´æ
 	SpriteFrameCache::getInstance()->addSpriteFramesWithFile(PATH_WARSHIP_PLIST);
+	//¼ÓÔØ×Óµ¯¾«ÁéÖ¡»º´æ
 	SpriteFrameCache::getInstance()->addSpriteFramesWithFile(PATH_WARSHIP_BULLET_PLIST);
+	//¼ÓÔØµÐ»ú¾«ÁéÖ¡»º´æ
+	SpriteFrameCache::getInstance()->addSpriteFramesWithFile(PATH_ENEMY_PLIST);
 
 	// create a scene. it's an autorelease object
 	//auto scene = HelloWorld::createScene();
