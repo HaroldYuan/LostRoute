@@ -6,7 +6,7 @@ bool WarshipWeapon1::init(){
 	}
 	auto spriteFrame = SpriteFrameCache::getInstance()->getSpriteFrameByName(PATH_WARSHIP_WEAPON1_PICTURE);
 	initWithSpriteFrame(spriteFrame);
-	hp = 2;
+	hp = 1;
 	isWeapon = true;
 	return true;
 }

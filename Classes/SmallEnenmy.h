@@ -4,7 +4,7 @@
 #include "BodyParent.h"
 #include "Resources.h"
 
-using namespace cocos2d;
+USING_NS_CC;
 
 class SmallEnenmy :public BodyParent
 {

@@ -4,7 +4,7 @@
 #include "cocos2d.h"
 #include "Resources.h"
 #include "WarshipLayer.h"
-#include "SmallEnenmy.h"
+#include "BigEnemy.h"
 
 USING_NS_CC;
 class LostRouteGameLayer :public Layer{

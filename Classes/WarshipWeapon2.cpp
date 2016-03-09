@@ -11,7 +11,7 @@ bool WarshipWeapon2::init(){
 	angles[4] = -50;
 	auto spriteFrame = SpriteFrameCache::getInstance()->getSpriteFrameByName(PATH_WARSHIP_WEAPON2_PICTURE);
 	initWithSpriteFrame(spriteFrame);
-	hp = 1;
+	hp = 2;
 	isWeapon = true;
 	return true;
 }

@@ -5,6 +5,7 @@
 //µÐ»úÍ¼Æ¬
 #define  PATH_SMALLENEMY1_PICTURE "enemy_1.png"
 #define  PATH_SMALLENEMY2_PICTURE "enemy_2.png"
+#define  PATH_BIGENEMY_PICTURE    "enemy_3.png"
 #define  PATH_ENEMY_PLIST        "list/enemy.plist"
 
 //±³¾°Í¼Æ¬
