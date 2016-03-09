@@ -23,8 +23,40 @@ bool Warship::init(){
 		if (Director::getInstance()->isPaused()){
 			return;
 		}
+
+		Size screenSize = Director::getInstance()->getVisibleSize();
 		auto target = static_cast<Sprite*>(event->getCurrentTarget());
-		target->setPosition(target->getPosition() + touch->getDelta());
+
+		//未经过修正前的坐标
+		auto newPosition = target->getPosition() + touch->getDelta();
+
+		float halfwarshipWidth = target->getContentSize().width / 2;
+		float halfwarshipHeight = target->getContentSize().height / 2;
+		log("width= %f,height= %f", target->getContentSize().width, target->getContentSize().height);
+
+		float pos_X = newPosition.x;
+		float pos_Y = newPosition.y;
+
+		//判断横坐标是否超出屏幕范围
+		if (pos_X < halfwarshipWidth){
+			pos_X = halfwarshipWidth;
+		}
+		else if (pos_X>screenSize.width - halfwarshipWidth){
+			pos_X = screenSize.width - halfwarshipWidth;
+		}
+
+		//判断纵坐标是否超出屏幕范围
+		if (pos_Y < halfwarshipHeight){
+			pos_Y = halfwarshipHeight;
+		}
+		else if (pos_Y>screenSize.height - halfwarshipHeight){
+			pos_Y = screenSize.height - halfwarshipHeight;
+		}
+
+		//经过修正后的坐标
+		auto correctPosition = Vec2(pos_X, pos_Y);
+
+		target->setPosition(correctPosition);
 	};
 
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
@@ -48,7 +80,7 @@ void Warship::repeatShoot1(float dt){
 
 		//设置激光束的起始坐标
 		auto weaponStartX = getPositionX() - weaponOffset[index];
-		auto weaponStartY = getPositionY() + getContentSize().height / 3;
+		auto weaponStartY = getPositionY() + getContentSize().height / 2;
 
 		//设置激光束的初始位置
 		weapon->setPosition(weaponStartX, weaponStartY);
@@ -92,7 +124,7 @@ void Warship::repeatShoot2(float dt){
 
 		//设置光子鱼雷的起始坐标
 		auto weaponStartX = getPositionX() + weaponOffset[index];
-		auto weaponStartY = getPositionY() + getContentSize().height / 3;
+		auto weaponStartY = getPositionY() + getContentSize().height / 2;
 
 		//设置光子鱼雷的初始位置
 		weapon->setPosition(weaponStartX, weaponStartY);

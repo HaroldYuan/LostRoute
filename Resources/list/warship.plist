@@ -9,13 +9,13 @@
                 <key>frame</key>
                 <string>{{2,2},{126,76}}</string>
                 <key>offset</key>
-                <string>{-1,1}</string>
+                <string>{-1,0}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
-                <string>{{36,61},{126,76}}</string>
+                <string>{{0,3},{126,76}}</string>
                 <key>sourceSize</key>
-                <string>{200,200}</string>
+                <string>{128,82}</string>
             </dict>
         </dict>
         <key>metadata</key>
@@ -25,9 +25,9 @@
             <key>realTextureFileName</key>
             <string>warship.png</string>
             <key>size</key>
-            <string>{128,256}</string>
+            <string>{130,80}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:8ea8ddc04a951c16759eb7a0b98a6b2d$</string>
+            <string>$TexturePacker:SmartUpdate:07ce524a00b1e0f934c79d00be677df0$</string>
             <key>textureFileName</key>
             <string>warship.png</string>
         </dict>
