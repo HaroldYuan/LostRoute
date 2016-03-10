@@ -17,6 +17,9 @@
 #define PATH_WARSHIP_BULLET_PICTURE "bullet.png"
 #define PATH_WARSHIP_WEAPON1_PICTURE "warship_bullet_1.png"
 #define PATH_WARSHIP_WEAPON2_PICTURE "warship_bullet_2.png"
+#define PATH_ENEMY_WEAPON1_PICTURE   "enemy_bullet_1.png"
+#define PATH_ENEMY_WEAPON2_PICTURE   "enemy_bullet_2.png"
+#define PATH_ENEMY_WEAPON3_PICTURE   "enemy_bullet_3.png"
 #define PATH_WARSHIP_BULLET_PLIST "list/bullet.plist"
 
 //飞船生命值
@@ -28,3 +31,7 @@
 //定义武器类型
 #define weapon_lasor   1
 #define weapon_torpedo 2
+
+//定义敌机类型
+#define smallenemy_1 1
+#define smallEnemy_2 2

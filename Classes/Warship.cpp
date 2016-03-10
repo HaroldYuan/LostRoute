@@ -80,7 +80,7 @@ void Warship::repeatShoot1(float dt){
 
 		//设置激光束的起始坐标
 		auto weaponStartX = getPositionX() - weaponOffset[index];
-		auto weaponStartY = getPositionY() + getContentSize().height / 2;
+		auto weaponStartY = getPositionY() + getContentSize().height / 2 + weapon->getContentSize().height / 2;
 
 		//设置激光束的初始位置
 		weapon->setPosition(weaponStartX, weaponStartY);
@@ -94,6 +94,7 @@ void Warship::repeatShoot1(float dt){
 		//设置激光束的终点坐标
 		auto weaponEndX = weaponStartX;
 		auto weaponEndY = size.height + weapon->getContentSize().height / 2;
+		//设置激光束移动速度
 		auto moveDuration = 2 * (weaponEndY - weaponStartY) / size.height;
 
 		//MoveTo动作序列
@@ -107,7 +108,7 @@ void Warship::repeatShoot1(float dt){
 
 void Warship::repeatShoot2(float dt){
 	auto size = Director::getInstance()->getVisibleSize();
-	int weaponOffset[] = { 20, 10, weaponCount2, -10, -20 }; //光子鱼雷距离飞船水平中心点的距离
+	int weaponOffset[] = { 20, 10, 0, -10, -20 }; //光子鱼雷距离飞船水平中心点的距离
 	for (int i = 0; i < weaponCount2; i++){
 		auto weapon = WarshipWeapon2::create();
 		//weaponCount=1
@@ -124,7 +125,7 @@ void Warship::repeatShoot2(float dt){
 
 		//设置光子鱼雷的起始坐标
 		auto weaponStartX = getPositionX() + weaponOffset[index];
-		auto weaponStartY = getPositionY() + getContentSize().height / 2;
+		auto weaponStartY = getPositionY() + getContentSize().height / 2 + weapon->getContentSize().height / 2;
 
 		//设置光子鱼雷的初始位置
 		weapon->setPosition(weaponStartX, weaponStartY);

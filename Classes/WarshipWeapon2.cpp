@@ -26,4 +26,7 @@ int WarshipWeapon2::getAngle(int index){
 	if (index >= 0 && index <= 4){
 		return angles[index];
 	}
+	else{
+		return angles[0];
+	}
 }

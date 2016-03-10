@@ -9,7 +9,6 @@ bool WarshipLayer::init(){
 	warship = Warship::create();
 	warship->setPosition(size.width / 2, size.height / 2);
 	addChild(warship);
-
 	//为飞船创建一种武器（激光束）
 	/*auto weapon=WarshipWeapon1::create();
 	weapon->setPosition(100,200);
