@@ -31,11 +31,12 @@ bool LostRouteGameLayer::init(){
 	myWarshipLayer = WarshipLayer::create();
 	addChild(myWarshipLayer);
 	myWarshipLayer->setWeaponLayer(mWeaponLayer);
-	auto mySmallEnemy = SmallEnenmy::create();
-	mySmallEnemy->setPosition(Vec2(200, 400));
-	mySmallEnemy->setWeaponLayer(mWeaponLayer);
-	mySmallEnemy->shoot();
-	addChild(mySmallEnemy);
+
+	auto BigEnemy = BigEnemy::create();
+	BigEnemy->setPosition(Vec2(200, 400));
+	BigEnemy->setWeaponLayer(mWeaponLayer);
+	BigEnemy->shoot();
+	addChild(BigEnemy);
 	scheduleUpdate();
 
 	return true;
