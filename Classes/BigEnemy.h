@@ -19,8 +19,11 @@ public:
 
 	void setWeaponLayer(WeaponLayer* mWeaponLayer);
 
+	virtual void clear();
+
 	CREATE_FUNC(BigEnemy);
 private:
 	WeaponLayer* myWeaponLayer;
+	float UpdateTimeCount;
 };
 #endif // BigEnemy_h__

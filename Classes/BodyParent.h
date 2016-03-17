@@ -16,6 +16,10 @@ public:
 	//用于产生爆炸效果的特效
 	virtual void explode();
 
+	//用于敌机恢复为初始状态
+	virtual void clear(){
+	}
+
 public:
 	int hp = 1;     //当前Body的生命值
 	int maxHP = 1;   //当前Bodyd的最大生命值

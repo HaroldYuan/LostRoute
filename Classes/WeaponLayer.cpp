@@ -23,6 +23,7 @@ void WeaponLayer::weaponMovedFinished(Node* sender){
 }
 
 WeaponLayer::~WeaponLayer(){
+	//weaponContainer->removeAllObjects();
 	weaponContainer->release();
 	weaponContainer = nullptr;
 }

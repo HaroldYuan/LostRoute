@@ -65,3 +65,12 @@ void BigEnemy::repeatShoot(float dt){
 void BigEnemy::setWeaponLayer(WeaponLayer* mWeaponLayer){
 	myWeaponLayer = mWeaponLayer;
 }
+
+void BigEnemy::clear(){
+	UpdateTimeCount = 0;
+	stopAllActions();
+	setVisible(false);
+	node = nullptr;
+	missle = nullptr;
+	selected = false;
+}

@@ -15,7 +15,7 @@ bool Warship::init(){
 	auto listener = EventListenerTouchOneByOne::create();
 
 	//使用lambda表达式
-	listener->onTouchBegan = [=](Touch* touch, Event* event){
+	listener->onTouchBegan = [](Touch* touch, Event* event){
 		return true;
 	};
 
@@ -173,7 +173,7 @@ void Warship::shoot(){
 		if (isScheduled(schedule_selector(Warship::repeatShoot1))){
 			unschedule(schedule_selector(Warship::repeatShoot1));
 		}
-		schedule(schedule_selector(Warship::repeatShoot2), 0.3);
+		schedule(schedule_selector(Warship::repeatShoot2), 0.5);
 	}
 	//schedule(schedule_selector(Warship::repeatShoot1), 0.3);
 }
