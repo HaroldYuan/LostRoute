@@ -15,8 +15,6 @@ public:
 
 	CREATE_FUNC(SmallEnemy);
 
-	void setWeaponLayer(WeaponLayer* mWeaponLayer);
-
 	void shoot();
 
 	void repeatShoot(float dt);
@@ -31,6 +29,5 @@ public:
 private:
 	int EnemyTag = 1;
 	float UpdateTimeCount = 0;
-	WeaponLayer* myWeaponLayer;
 };
 #endif // smallEnenmy_h__

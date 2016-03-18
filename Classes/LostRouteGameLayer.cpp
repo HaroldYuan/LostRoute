@@ -25,16 +25,19 @@ bool LostRouteGameLayer::init(){
 	addChild(bgCloud1);
 	addChild(bgCloud2);
 
-	mWeaponLayer = WeaponLayer::create();
-	addChild(mWeaponLayer);
+	//mWeaponLayer = WeaponLayer::create();
+	// 	mWeaponLayer = WeaponLayer::getInstance();
+	// 	addChild(mWeaponLayer);
+
+	addChild(WeaponLayer::getInstance());
 
 	myWarshipLayer = WarshipLayer::create();
 	addChild(myWarshipLayer);
-	myWarshipLayer->setWeaponLayer(mWeaponLayer);
+	//myWarshipLayer->setWeaponLayer(mWeaponLayer);
 
 	mEnemyLayer = EnemyLayer::create();
 	addChild(mEnemyLayer);
-	mEnemyLayer->setWeaponLayer(mWeaponLayer);
+	//mEnemyLayer->setWeaponLayer(mWeaponLayer);
 
 	scheduleUpdate();
 

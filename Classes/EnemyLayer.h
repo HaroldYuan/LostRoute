@@ -37,8 +37,6 @@ public:
 
 	__Array* bigEnemy_Pool;  //存储所有可用的BigEnemy
 
-	int EnemyCount = 0;
-
 private:
 	WeaponLayer* myWeaponLayer;
 };

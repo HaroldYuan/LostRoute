@@ -30,7 +30,5 @@ public:
 	int weaponCount1;  //激光束武器路数    1 3
 	int weaponCount2;  //光子鱼雷武器路数   1 3 5
 	int weaponType;    //武器类型 1(激光束） 2(光子鱼雷)
-private:
-	WeaponLayer* myWeaponLayer;
 };
 #endif // Warship_h__

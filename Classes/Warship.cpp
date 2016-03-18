@@ -38,7 +38,6 @@ bool Warship::init(){
 
 			float halfwarshipWidth = target->getContentSize().width / 2;
 			float halfwarshipHeight = target->getContentSize().height / 2;
-			log("width= %f,height= %f", target->getContentSize().width, target->getContentSize().height);
 
 			float pos_X = newPosition.x;
 			float pos_Y = newPosition.y;
@@ -73,10 +72,6 @@ bool Warship::init(){
 	return true;
 }
 
-void Warship::setWeaponLayer(WeaponLayer* weaponLayer){
-	myWeaponLayer = weaponLayer;
-}
-
 void Warship::repeatShoot1(float dt){
 	auto size = Director::getInstance()->getWinSize();
 	int weaponOffset[] = { 40, 20, 0, -20, -40 }; //激光束距离飞船水平中心点的距离
@@ -91,9 +86,8 @@ void Warship::repeatShoot1(float dt){
 
 		//设置激光束的初始位置
 		weapon->setPosition(weaponStartX, weaponStartY);
-		myWeaponLayer->addChild(weapon);
-		myWeaponLayer->weaponContainer->addObject(weapon);
-
+		WeaponLayer::getInstance()->addChild(weapon);
+		WeaponLayer::getInstance()->weaponContainer->addObject(weapon);
 		//设置激光束移动速度
 		//bug:导致飞机接近屏幕边缘，子弹无法从屏幕移除(飞机接时近边缘时，size.height - weaponStartY为负值）
 		//auto moveDuration = 2 * (size.height - weaponStartY) / size.height;
@@ -106,7 +100,7 @@ void Warship::repeatShoot1(float dt){
 
 		//MoveTo动作序列
 		auto actionMove = MoveTo::create(moveDuration, Vec2(weaponEndX, weaponEndY));
-		auto actionDone = CallFuncN::create(CC_CALLBACK_1(WeaponLayer::weaponMovedFinished, myWeaponLayer));
+		auto actionDone = CallFuncN::create(CC_CALLBACK_1(WeaponLayer::weaponMovedFinished, WeaponLayer::getInstance()));
 		auto sequence = Sequence::create(actionMove, actionDone, nullptr);
 		weapon->setVisible(true);
 		weapon->runAction(sequence);
@@ -136,8 +130,8 @@ void Warship::repeatShoot2(float dt){
 
 		//设置光子鱼雷的初始位置
 		weapon->setPosition(weaponStartX, weaponStartY);
-		myWeaponLayer->addChild(weapon);
-		myWeaponLayer->weaponContainer->addObject(weapon);
+		WeaponLayer::getInstance()->addChild(weapon);
+		WeaponLayer::getInstance()->weaponContainer->addObject(weapon);
 
 		//设置光子鱼雷终点坐标
 		auto weaponEndX = getPositionX();
@@ -148,7 +142,7 @@ void Warship::repeatShoot2(float dt){
 		auto moveDuration = 2 * (weaponEndY - weaponStartY) / size.height;
 		//MoveTo 动作序列
 		auto actionMove = MoveTo::create(moveDuration, Vec2(weaponEndX, weaponEndY));
-		auto actionDone = CallFuncN::create(CC_CALLBACK_1(WeaponLayer::weaponMovedFinished, myWeaponLayer));
+		auto actionDone = CallFuncN::create(CC_CALLBACK_1(WeaponLayer::weaponMovedFinished, WeaponLayer::getInstance()));
 		auto sequence = Sequence::create(actionMove, actionDone, nullptr);
 
 		//weapon->setVisible(true);

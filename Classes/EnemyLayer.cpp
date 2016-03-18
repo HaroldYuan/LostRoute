@@ -58,7 +58,6 @@ void EnemyLayer::setWeaponLayer(WeaponLayer* mWeaponLayer){
 
 void EnemyLayer::addSmallEnemy_MoveTo(float dt){
 	auto smallEnemy = produceSmallEnemy();
-
 	auto smallEnemySize = smallEnemy->getContentSize();
 	auto size = Director::getInstance()->getWinSize();
 
@@ -93,7 +92,6 @@ void EnemyLayer::addSmallEnemy_MoveTo(float dt){
 
 	auto actionSequence = Sequence::create(actionMove, actionDone, NULL);
 
-	smallEnemy->setWeaponLayer(myWeaponLayer);
 	smallEnemy->duration = moveDuration;
 	smallEnemy->runAction(actionSequence);
 	if (smallEnemy->getEnemyTag() == 2){

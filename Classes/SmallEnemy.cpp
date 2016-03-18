@@ -5,7 +5,7 @@ bool SmallEnemy::init(){
 		return false;
 	}
 	auto enemyPath = PATH_SMALLENEMY1_PICTURE;
-	if (rand() % 10000 > 5000){
+	if (rand() % 10000 > 4000){
 		enemyPath = PATH_SMALLENEMY2_PICTURE;
 		EnemyTag = 2;
 	}
@@ -18,10 +18,6 @@ bool SmallEnemy::init(){
 	return true;
 }
 
-void SmallEnemy::setWeaponLayer(WeaponLayer* mWeaponLayer){
-	myWeaponLayer = mWeaponLayer;
-}
-
 void SmallEnemy::shoot(){
 	schedule(schedule_selector(SmallEnemy::repeatShoot), 0.6);
 }
@@ -31,8 +27,8 @@ void SmallEnemy::repeatShoot(float dt){
 	Sprite* weapon = nullptr;
 	//向上类型转换
 	weapon = SmallEnemyWeapon::create();
-	myWeaponLayer->addChild(weapon);
-	myWeaponLayer->weaponContainer->addObject(weapon);
+	WeaponLayer::getInstance()->addChild(weapon);
+	WeaponLayer::getInstance()->weaponContainer->addObject(weapon);
 
 	//敌机子弹起始坐标
 	auto weaponStartX = getPositionX();
@@ -57,10 +53,9 @@ void SmallEnemy::repeatShoot(float dt){
 	UpdateTimeCount += dt;
 	//auto moveDuration = (weaponStartY - weaponEndY) / size.height;
 	auto moveDuration = (duration - UpdateTimeCount) * 1 / 4;
-
 	//动作序列
 	auto actionMove = MoveTo::create(moveDuration, Vec2(weaponEndX, weaponEndY));
-	auto actionDone = CallFuncN::create(CC_CALLBACK_1(WeaponLayer::weaponMovedFinished, myWeaponLayer));
+	auto actionDone = CallFuncN::create(CC_CALLBACK_1(WeaponLayer::weaponMovedFinished, WeaponLayer::getInstance()));
 	auto sequence = Sequence::create(actionMove, actionDone, nullptr);
 
 	weapon->runAction(sequence);

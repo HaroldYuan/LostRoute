@@ -10,14 +10,9 @@ class WarshipLayer :public Layer
 public:
 	virtual bool init();
 
-	void setWeaponLayer(WeaponLayer* weaponLayer);
-
 	CREATE_FUNC(WarshipLayer);
 
 public:
 	Warship* warship;
-
-private:
-	WeaponLayer* mWeaponLayer;
 };
 #endif // WarshipLayer_h__
