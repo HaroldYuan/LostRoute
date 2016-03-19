@@ -12,3 +12,8 @@ bool SmallEnemyWeapon::init(){
 	isWeapon = true;
 	return true;
 }
+
+void SmallEnemyWeapon::clear(){
+	setVisible(false);
+	stopAllActions();
+}

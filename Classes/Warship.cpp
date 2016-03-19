@@ -76,8 +76,8 @@ void Warship::repeatShoot1(float dt){
 	auto size = Director::getInstance()->getWinSize();
 	int weaponOffset[] = { 40, 20, 0, -20, -40 }; //激光束距离飞船水平中心点的距离
 	for (int i = 0; i < weaponCount1; i++){
-		auto weapon = WarshipWeapon1::create();
-
+		//auto weapon = WarshipWeapon1::create();
+		auto weapon = WeaponLayer::getInstance()->produceWarshipWeapon1();
 		auto index = i + 2 - weaponCount1 / 2;
 
 		//设置激光束的起始坐标
@@ -86,7 +86,10 @@ void Warship::repeatShoot1(float dt){
 
 		//设置激光束的初始位置
 		weapon->setPosition(weaponStartX, weaponStartY);
-		WeaponLayer::getInstance()->addChild(weapon);
+		/*WeaponLayer::getInstance()->addChild(weapon);*/
+		if (weapon->getParent() == nullptr){
+			WeaponLayer::getInstance()->addChild(weapon);
+		}
 		WeaponLayer::getInstance()->weaponContainer->addObject(weapon);
 		//设置激光束移动速度
 		//bug:导致飞机接近屏幕边缘，子弹无法从屏幕移除(飞机接时近边缘时，size.height - weaponStartY为负值）
@@ -111,7 +114,7 @@ void Warship::repeatShoot2(float dt){
 	auto size = Director::getInstance()->getVisibleSize();
 	int weaponOffset[] = { 20, 10, 0, -10, -20 }; //光子鱼雷距离飞船水平中心点的距离
 	for (int i = 0; i < weaponCount2; i++){
-		auto weapon = WarshipWeapon2::create();
+		auto weapon = WeaponLayer::getInstance()->produceWarshipWeapon2();
 		//weaponCount=1
 		//index=2
 
@@ -130,7 +133,10 @@ void Warship::repeatShoot2(float dt){
 
 		//设置光子鱼雷的初始位置
 		weapon->setPosition(weaponStartX, weaponStartY);
-		WeaponLayer::getInstance()->addChild(weapon);
+		if (weapon->getParent() == nullptr){
+			WeaponLayer::getInstance()->addChild(weapon);
+		}
+
 		WeaponLayer::getInstance()->weaponContainer->addObject(weapon);
 
 		//设置光子鱼雷终点坐标

@@ -21,8 +21,6 @@ public:
 
 	void addBigEnemyToPool(BigEnemy* enemy);
 
-	void setWeaponLayer(WeaponLayer* myWeaponLayer);
-
 	//敌机直线飞行
 	void addSmallEnemy_MoveTo(float dt);
 

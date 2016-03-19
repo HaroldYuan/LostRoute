@@ -10,3 +10,8 @@ bool WarshipWeapon1::init(){
 	isWeapon = true;
 	return true;
 }
+
+void WarshipWeapon1::clear(){
+	setVisible(false);
+	stopAllActions();
+}

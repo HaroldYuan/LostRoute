@@ -7,8 +7,11 @@
 USING_NS_CC;
 
 class WarshipWeapon1 :public BodyParent{
+	friend class WeaponLayer;
 public:
 	virtual bool init();
+
+	void clear();
 
 	CREATE_FUNC(WarshipWeapon1);
 

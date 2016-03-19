@@ -26,8 +26,10 @@ void SmallEnemy::repeatShoot(float dt){
 	auto size = Director::getInstance()->getWinSize();
 	Sprite* weapon = nullptr;
 	//向上类型转换
-	weapon = SmallEnemyWeapon::create();
-	WeaponLayer::getInstance()->addChild(weapon);
+	weapon = WeaponLayer::getInstance()->produceSmallEnemyWeapon();
+	if (weapon->getParent() == nullptr){
+		WeaponLayer::getInstance()->addChild(weapon);
+	}
 	WeaponLayer::getInstance()->weaponContainer->addObject(weapon);
 
 	//敌机子弹起始坐标

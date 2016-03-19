@@ -7,8 +7,12 @@ USING_NS_CC;
 
 class SmallEnemyWeapon :public BodyParent
 {
+	friend class WeaponLayer;
 public:
 	virtual bool init();
+
+	void clear();
+
 	CREATE_FUNC(SmallEnemyWeapon);
 };
 #endif // SmallEnemyWeapon2_h__

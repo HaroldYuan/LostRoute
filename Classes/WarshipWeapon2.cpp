@@ -30,3 +30,8 @@ int WarshipWeapon2::getAngle(int index){
 		return angles[0];
 	}
 }
+
+void WarshipWeapon2::clear(){
+	setVisible(false);
+	stopAllActions();
+}

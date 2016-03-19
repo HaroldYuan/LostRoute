@@ -52,10 +52,6 @@ void EnemyLayer::addBigEnemyToPool(BigEnemy* enemy){
 	bigEnemy_Pool->addObject(enemy);
 }
 
-void EnemyLayer::setWeaponLayer(WeaponLayer* mWeaponLayer){
-	myWeaponLayer = mWeaponLayer;
-}
-
 void EnemyLayer::addSmallEnemy_MoveTo(float dt){
 	auto smallEnemy = produceSmallEnemy();
 	auto smallEnemySize = smallEnemy->getContentSize();
