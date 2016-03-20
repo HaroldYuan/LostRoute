@@ -1,5 +1,5 @@
 //·É´¬Í¼Æ¬
-#define PATH_WARSHIP_1_PICTURE "warship_1.png"
+#define PATH_WARSHIP_1_PICTURE  "warship_1.png"
 #define PATH_WARSHIP_PLIST "list/warship.plist"
 
 //µÐ»úÍ¼Æ¬
@@ -19,7 +19,6 @@
 #define PATH_WARSHIP_WEAPON2_PICTURE "warship_bullet_2.png"
 #define PATH_ENEMY_WEAPON1_PICTURE   "enemy_bullet_1.png"
 #define PATH_ENEMY_WEAPON2_PICTURE   "enemy_bullet_2.png"
-#define PATH_ENEMY_WEAPON3_PICTURE   "enemy_bullet_3.png"
 #define PATH_WARSHIP_BULLET_PLIST "list/bullet.plist"
 
 //·É´¬ÉúÃüÖµ

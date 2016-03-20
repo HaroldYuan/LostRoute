@@ -7,19 +7,6 @@
             <key>enemy_bullet_1.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,232},{22,40}}</string>
-                <key>offset</key>
-                <string>{0,2}</string>
-                <key>rotated</key>
-                <false/>
-                <key>sourceColorRect</key>
-                <string>{{6,0},{22,40}}</string>
-                <key>sourceSize</key>
-                <string>{34,44}</string>
-            </dict>
-            <key>enemy_bullet_2.png</key>
-            <dict>
-                <key>frame</key>
                 <string>{{2,128},{26,45}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
@@ -30,7 +17,7 @@
                 <key>sourceSize</key>
                 <string>{26,45}</string>
             </dict>
-            <key>enemy_bullet_3.png</key>
+            <key>enemy_bullet_2.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{2,71},{26,55}}</string>
@@ -46,7 +33,7 @@
             <key>warship_bullet_1.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,274},{12,45}}</string>
+                <string>{{2,232},{12,45}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -90,9 +77,9 @@
             <key>realTextureFileName</key>
             <string>bullet.png</string>
             <key>size</key>
-            <string>{30,321}</string>
+            <string>{30,279}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:315f67318cc8efe82691720463a7597b$</string>
+            <string>$TexturePacker:SmartUpdate:42d7890b2a03553ef98488f5824347fb$</string>
             <key>textureFileName</key>
             <string>bullet.png</string>
         </dict>

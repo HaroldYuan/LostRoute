@@ -5,7 +5,7 @@ bool SmallEnemy::init(){
 		return false;
 	}
 	auto enemyPath = PATH_SMALLENEMY1_PICTURE;
-	if (rand() % 10000 > 4000){
+	if (rand() % 1000 > 400){
 		enemyPath = PATH_SMALLENEMY2_PICTURE;
 		EnemyTag = 2;
 	}

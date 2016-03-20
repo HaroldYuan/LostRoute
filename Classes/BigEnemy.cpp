@@ -18,6 +18,7 @@ void BigEnemy::shoot(){
 
 void BigEnemy::repeatShoot(float dt){
 	auto size = Director::getInstance()->getWinSize();
+	auto myWeaponLayer = WeaponLayer::getInstance();
 
 	auto leftWeapon = BigEnemyWeapon::create();
 	auto rightWeapon = BigEnemyWeapon::create();
@@ -62,15 +63,11 @@ void BigEnemy::repeatShoot(float dt){
 	rightWeapon->runAction(actionSequenceRightWeapon);
 }
 
-void BigEnemy::setWeaponLayer(WeaponLayer* mWeaponLayer){
-	myWeaponLayer = mWeaponLayer;
-}
-
 void BigEnemy::clear(){
-	UpdateTimeCount = 0;
 	stopAllActions();
 	setVisible(false);
 	node = nullptr;
 	missle = nullptr;
 	selected = false;
+	unscheduleAllSelectors();
 }

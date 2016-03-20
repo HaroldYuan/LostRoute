@@ -17,13 +17,8 @@ public:
 
 	void repeatShoot(float dt);
 
-	void setWeaponLayer(WeaponLayer* mWeaponLayer);
-
 	virtual void clear();
 
 	CREATE_FUNC(BigEnemy);
-private:
-	WeaponLayer* myWeaponLayer;
-	float UpdateTimeCount;
 };
 #endif // BigEnemy_h__

@@ -10,7 +10,6 @@ USING_NS_CC;
 class WeaponLayer :public Layer
 {
 public:
-	//WeaponLayer();
 
 	static WeaponLayer* getInstance();
 
@@ -18,7 +17,6 @@ public:
 
 	void weaponMovedFinished(Node* sender);
 
-	//CREATE_FUNC(WeaponLayer);
 	WarshipWeapon1* produceWarshipWeapon1();
 
 	WarshipWeapon2* produceWarshipWeapon2();

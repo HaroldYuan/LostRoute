@@ -21,10 +21,19 @@ public:
 
 	void addBigEnemyToPool(BigEnemy* enemy);
 
-	//敌机直线飞行
+	//SmallEnemy直线飞行
 	void addSmallEnemy_MoveTo(float dt);
 
-	//从Pool中获取一个对象，当pool中对象为空时，创建一个新对象
+	//BigEnemy直线飞行
+	void addBigEnemy_MoveTo(float dt);
+
+	//敌机成排直线飞行
+	void addSmallEnemy_MoveToUniform(float dt);
+
+	//从Pool中获取一个SmallEnemy对象，当pool中对象为空时，创建一个新对象
+	BigEnemy* produceBigEnemy();
+
+	//从Pool中获取一个BigEnemy对象，当pool中对象为空时，创建一个新对象
 	SmallEnemy* produceSmallEnemy();
 
 	CREATE_FUNC(EnemyLayer);
