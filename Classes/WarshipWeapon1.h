@@ -16,6 +16,6 @@ public:
 	CREATE_FUNC(WarshipWeapon1);
 
 public:
-	bool swithweapon;
+	bool switchweapon;
 };
 #endif // WarshipWeapon1_h__

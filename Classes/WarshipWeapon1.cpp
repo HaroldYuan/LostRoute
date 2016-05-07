@@ -6,8 +6,17 @@ bool WarshipWeapon1::init(){
 	}
 	auto spriteFrame = SpriteFrameCache::getInstance()->getSpriteFrameByName(PATH_WARSHIP_WEAPON1_PICTURE);
 	initWithSpriteFrame(spriteFrame);
+
+	auto body = PhysicsBody::createBox(getContentSize());
+	setPhysicsBody(body);
+
+	body->setCategoryBitmask(0x01);       //0001
+	body->setContactTestBitmask(0x03);    //0011
+	body->setCollisionBitmask(0x02);      //0010
+
 	hp = 1;
 	isWeapon = true;
+	setTag(Hero);
 	return true;
 }
 

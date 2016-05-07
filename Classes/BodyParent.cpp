@@ -16,6 +16,7 @@ bool BodyParent::collide(int lethality){
 
 void BodyParent::collide(){
 	setVisible(false);
+	unscheduleAllSelectors();
 }
 
 void BodyParent::explode(){

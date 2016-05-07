@@ -26,8 +26,9 @@ public:
 
 	virtual bool init();
 
+	bool onContactBegin(PhysicsContact& contact);
+
 	virtual void update(float time);
-private:
 };
 
 #endif // LostRouteGameLayer_h__

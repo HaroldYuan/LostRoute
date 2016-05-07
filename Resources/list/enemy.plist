@@ -7,41 +7,41 @@
             <key>enemy_1.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{64,81},{60,45}}</string>
+                <string>{{75,73},{56,41}}</string>
                 <key>offset</key>
-                <string>{0,1}</string>
+                <string>{-1,1}</string>
                 <key>rotated</key>
-                <false/>
+                <true/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{60,45}}</string>
+                <string>{{1,2},{56,41}}</string>
                 <key>sourceSize</key>
                 <string>{60,47}</string>
             </dict>
             <key>enemy_2.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,81},{60,47}}</string>
+                <string>{{2,73},{71,57}}</string>
                 <key>offset</key>
-                <string>{0,0}</string>
+                <string>{0,1}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{0,1},{60,47}}</string>
+                <string>{{2,1},{71,57}}</string>
                 <key>sourceSize</key>
-                <string>{60,49}</string>
+                <string>{75,61}</string>
             </dict>
             <key>enemy_3.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,2},{108,77}}</string>
+                <string>{{2,2},{94,69}}</string>
                 <key>offset</key>
-                <string>{0,-1}</string>
+                <string>{-1,3}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{1,2},{108,77}}</string>
+                <string>{{2,1},{94,69}}</string>
                 <key>sourceSize</key>
-                <string>{110,79}</string>
+                <string>{100,77}</string>
             </dict>
         </dict>
         <key>metadata</key>
@@ -51,9 +51,9 @@
             <key>realTextureFileName</key>
             <string>enemy.png</string>
             <key>size</key>
-            <string>{126,130}</string>
+            <string>{118,132}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:838747932c967bdeb12b1c4ef2ce086c$</string>
+            <string>$TexturePacker:SmartUpdate:34f27b471fee4d7c3ae476d396b975d7$</string>
             <key>textureFileName</key>
             <string>enemy.png</string>
         </dict>

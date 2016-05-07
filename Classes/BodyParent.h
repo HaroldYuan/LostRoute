@@ -17,12 +17,10 @@ public:
 	virtual void explode();
 
 	//用于敌机恢复为初始状态
-	virtual void clear(){
-	}
+	virtual void clear(){}
 
 public:
 	int hp = 1;     //当前Body的生命值
-	int maxHP = 1;   //当前Bodyd的最大生命值
 	bool selected = false;     //当前是否被导弹选中
 	BodyParent* node = nullptr; //保存于当前Body关联的Node
 	BodyParent* missle = nullptr;

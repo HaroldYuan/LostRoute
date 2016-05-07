@@ -1,3 +1,5 @@
+#ifndef Resources_h__
+#define Resources_h__
 //飞船图片
 #define PATH_WARSHIP_1_PICTURE  "warship_1.png"
 #define PATH_WARSHIP_PLIST "list/warship.plist"
@@ -21,8 +23,22 @@
 #define PATH_ENEMY_WEAPON2_PICTURE   "enemy_bullet_2.png"
 #define PATH_WARSHIP_BULLET_PLIST "list/bullet.plist"
 
+//Drop图片
+#define PATH_DROP_ADDBULLET_PICTURE "addbullet.png"
+#define PATH_DROP_ADDLIFE_PICTURE   "blood.png"
+#define PATH_DROP_PLIST "list/drop.plist"
+
 //飞船生命值
-#define  WARSHIP_MAX_HP 100
+#define  WARSHIP_MAX_HP 30
+
+//小型敌机1生命值
+#define  SmallEnemy1_MAX_HP 2
+
+//小型敌机2生命值
+#define  SmallEnemy2_MAX_HP 2
+
+//大型敌机生命值
+#define BigEnemy_MAX_HP 10
 
 //定义PI
 #define  PI 3.14
@@ -34,3 +50,24 @@
 //定义敌机类型
 #define smallenemy_1 1
 #define smallEnemy_2 2
+
+//爆炸效果
+#define PATH_EFFECT1_PLIST "explosion/explosion1.plist"
+#define PATH_EFFECT2_PLIST  "explosion/explosion2.plist"
+
+//定义发生碰撞的物体类型
+//#define Hero   0
+//#define Enemy  1
+enum ContactTag{
+	Hero = 0,
+	Enemy
+};
+
+//定义敌机AI动作类型
+enum ActionType{
+	MoveToBezierLeft = 0,
+	MoveToBezierRight,
+	MoveToUiniform,
+	MoveToLine
+};
+#endif // Resources_h__

@@ -5,8 +5,8 @@
 #include "Resources.h"
 #include "BodyParent.h"
 #include "WeaponLayer.h"
-#include "WarshipWeapon1.h"
 #include "WarshipWeapon2.h"
+#include "WarshipWeapon1.h"
 USING_NS_CC;
 
 class Warship :public BodyParent
@@ -19,16 +19,17 @@ public:
 	void shoot();
 
 	//发射激光束
-	void repeatShoot1(float dt);
+	void repeatShoot_lasor(float dt);
 
 	//发射光子鱼雷
-	void repeatShoot2(float dt);
+	void repeatShoot_torpedo(float dt);
+
+	virtual void explode();
 
 	CREATE_FUNC(Warship);
 
 public:
-	int weaponCount1;  //激光束武器路数    1 3
-	int weaponCount2;  //光子鱼雷武器路数   1 3 5
+	int weaponCount_lasor;  //激光束武器路数   1 3 5
 	int weaponType;    //武器类型 1(激光束） 2(光子鱼雷)
 };
 #endif // Warship_h__

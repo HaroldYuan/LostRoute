@@ -33,10 +33,10 @@ bool AppDelegate::applicationDidFinishLaunching() {
 	SpriteFrameCache::getInstance()->addSpriteFramesWithFile(PATH_WARSHIP_BULLET_PLIST);
 	//¼ÓÔØµÐ»ú¾«ÁéÖ¡»º´æ
 	SpriteFrameCache::getInstance()->addSpriteFramesWithFile(PATH_ENEMY_PLIST);
-	SpriteFrameCache::getInstance()->addSpriteFramesWithFile(PATH_ENEMY_PLIST);
+	//¼ÓÔØDropÀà¾«ÁéÖ¡»º´æ
+	SpriteFrameCache::getInstance()->addSpriteFramesWithFile(PATH_DROP_PLIST);
 
 	// create a scene. it's an autorelease object
-	//auto scene = HelloWorld::createScene();
 	auto scene = (LostRouteGameScene*)LostRouteGameScene::createWithPhysics();
 	// run
 	//director->runWithScene(scene);

@@ -33,7 +33,20 @@
             <key>warship_bullet_1.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,232},{12,45}}</string>
+                <string>{{2,175},{25,47}}</string>
+                <key>offset</key>
+                <string>{0,-1}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,2},{25,47}}</string>
+                <key>sourceSize</key>
+                <string>{25,49}</string>
+            </dict>
+            <key>warship_bullet_2.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{2,224},{12,45}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -42,19 +55,6 @@
                 <string>{{0,0},{12,45}}</string>
                 <key>sourceSize</key>
                 <string>{12,45}</string>
-            </dict>
-            <key>warship_bullet_2.png</key>
-            <dict>
-                <key>frame</key>
-                <string>{{2,175},{24,55}}</string>
-                <key>offset</key>
-                <string>{0,0}</string>
-                <key>rotated</key>
-                <false/>
-                <key>sourceColorRect</key>
-                <string>{{0,0},{24,55}}</string>
-                <key>sourceSize</key>
-                <string>{24,55}</string>
             </dict>
             <key>warship_bullet_3.png</key>
             <dict>
@@ -77,9 +77,9 @@
             <key>realTextureFileName</key>
             <string>bullet.png</string>
             <key>size</key>
-            <string>{30,279}</string>
+            <string>{30,271}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:42d7890b2a03553ef98488f5824347fb$</string>
+            <string>$TexturePacker:SmartUpdate:221a98e1a7a8fd26d9f11623d1c161db$</string>
             <key>textureFileName</key>
             <string>bullet.png</string>
         </dict>

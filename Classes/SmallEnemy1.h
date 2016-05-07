@@ -1,23 +1,23 @@
-#ifndef BigEnemy_h__
-#define BigEnemy_h__
-
+#ifndef SmallEnemy1_h__
+#define SmallEnemy1_h__
 #include "cocos2d.h"
 #include "BodyParent.h"
+
 USING_NS_CC;
 
-class BigEnemy :public BodyParent
+class SmallEnemy1 :public BodyParent
 {
 public:
 	virtual bool init();
+
+	CREATE_FUNC(SmallEnemy1);
 
 	void shoot();
 
 	void repeatShoot(float dt);
 
-	virtual void clear();
-
 	virtual void explode();
 
-	CREATE_FUNC(BigEnemy);
+	virtual void clear();
 };
-#endif // BigEnemy_h__
+#endif // SmallEnemy1_h__

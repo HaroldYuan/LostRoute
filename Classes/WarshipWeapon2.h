@@ -19,6 +19,6 @@ public:
 private:
 	CREATE_FUNC(WarshipWeapon2);
 private:
-	int angles[5]; //存储每一路光子鱼雷的角度
+	int angles[3]; //存储每一路光子鱼雷的角度
 };
 #endif // WarshipWeapon2_h__
