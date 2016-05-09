@@ -31,7 +31,7 @@ bool SmallEnemy1::init(){
 }
 
 void SmallEnemy1::shoot(){
-	schedule(schedule_selector(SmallEnemy1::repeatShoot), 0.6);
+	schedule(schedule_selector(SmallEnemy1::repeatShoot), 1);
 }
 
 void SmallEnemy1::repeatShoot(float dt){

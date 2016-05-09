@@ -26,7 +26,7 @@ bool BigEnemy::init(){
 }
 
 void BigEnemy::shoot(){
-	schedule(schedule_selector(BigEnemy::repeatShoot), 1.0);
+	schedule(schedule_selector(BigEnemy::repeatShoot), 2.0);
 }
 
 void BigEnemy::repeatShoot(float dt){

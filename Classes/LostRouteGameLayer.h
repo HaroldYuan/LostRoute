@@ -5,6 +5,7 @@
 #include "Resources.h"
 #include "WarshipLayer.h"
 #include "EnemyLayer.h"
+#include "DropLayer.h"
 
 USING_NS_CC;
 class LostRouteGameLayer :public Layer{
@@ -17,6 +18,7 @@ private:
 	WarshipLayer*   myWarshipLayer;
 	WeaponLayer*    mWeaponLayer;
 	EnemyLayer*     mEnemyLayer;
+	DropLayer*      mDropLayer;
 private:
 	//¹ö¶¯±³¾°Í¼
 	void moveBackground(Size &size);

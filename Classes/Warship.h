@@ -16,6 +16,7 @@ public:
 
 	void setWeaponLayer(WeaponLayer* weaponLayer);
 
+	//飞船发射的武器类型
 	void shoot();
 
 	//发射激光束
@@ -23,6 +24,15 @@ public:
 
 	//发射光子鱼雷
 	void repeatShoot_torpedo(float dt);
+
+	//改变武器类型
+	void changeWeaponType();
+
+	//添加生命值
+	void addHP(int delta_hp);
+
+	//当碰撞到DropWeapon一定时间后重置武器设置
+	void resetWeapon(float dt);
 
 	virtual void explode();
 

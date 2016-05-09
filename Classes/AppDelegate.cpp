@@ -10,6 +10,8 @@ AppDelegate::~AppDelegate() {
 }
 
 bool AppDelegate::applicationDidFinishLaunching() {
+	//产生随机数种子
+	srand((unsigned)time(0));
 	// initialize director
 	auto director = Director::getInstance();
 	auto glview = director->getOpenGLView();
@@ -20,7 +22,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
 	}
 
 	// turn on display FPS
-	director->setDisplayStats(false);
+	director->setDisplayStats(true);
 
 	// set FPS. the default value is 1.0/60 if you don't call this
 	director->setAnimationInterval(1.0 / 60);

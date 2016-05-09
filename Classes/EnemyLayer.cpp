@@ -25,13 +25,11 @@ bool EnemyLayer::init(){
 	if (!Layer::init()){
 		return false;
 	}
-	srand((unsigned)time(0));
 	for (int Index = 0; Index < arraySize; Index++){
 		statusArray[Index] = false;
 	}
-	schedule(schedule_selector(EnemyLayer::statusUpdate), 2.0);
+	schedule(schedule_selector(EnemyLayer::statusUpdate), 3.0);
 	schedule(schedule_selector(EnemyLayer::EnemyMove), 6.0);
-	//schedule(schedule_selector(EnemyLayer::addBigEnemy_MoveTo), 12.0);
 	return true;
 }
 
@@ -138,8 +136,8 @@ void EnemyLayer::addSmallEnemy_MoveToUniform(float dt){
 	}
 	//一排敌机的数量
 	int enemyCount = 2 + rand() % 4;
-	float minDuration = 3;
-	float maxDuration = 4;
+	float minDuration = 4;
+	float maxDuration = 5;
 	auto size = Director::getInstance()->getWinSize();
 
 	int rangeDuration = maxDuration - minDuration;
@@ -205,11 +203,11 @@ void EnemyLayer::addBigEnemy_MoveTo(float dt){
 	}
 	enemyContainer->addObject(bigEnemy);
 
-	float minDuration = 6;
-	float maxDuration = 8;
+	float minDuration = 4;
+	float maxDuration = 6;
 	int rangeDuration = maxDuration - minDuration;
 
-	auto moveDuration = 8 + CCRANDOM_0_1()*rangeDuration;
+	auto moveDuration = 4 + CCRANDOM_0_1()*rangeDuration;
 
 	auto actionMove = MoveTo::create(moveDuration, Vec2(startX, -bigEnemySize.height / 2));
 
@@ -261,6 +259,7 @@ SmallEnemy2* EnemyLayer::produceSmallEnemy2(){
 }
 
 void EnemyLayer::statusUpdate(float dt){
+	//产生随机数种子
 	srand((unsigned)time(0));
 	for (int Index = 0; Index < arraySize; Index++){
 		statusArray[Index] = false;

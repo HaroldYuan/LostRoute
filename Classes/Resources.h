@@ -1,7 +1,7 @@
 #ifndef Resources_h__
 #define Resources_h__
 //飞船图片
-#define PATH_WARSHIP_1_PICTURE  "warship_1.png"
+#define PATH_WARSHIP_1_PICTURE  "warship.png"
 #define PATH_WARSHIP_PLIST "list/warship.plist"
 
 //敌机图片
@@ -38,7 +38,7 @@
 #define  SmallEnemy2_MAX_HP 2
 
 //大型敌机生命值
-#define BigEnemy_MAX_HP 10
+#define BigEnemy_MAX_HP 15
 
 //定义PI
 #define  PI 3.14

@@ -6,8 +6,8 @@ bool Warship::init(){
 		return false;
 	}
 
-	weaponCount_lasor = 1;
-	weaponType = weapon_lasor;
+	weaponCount_lasor = 3;
+	weaponType = weapon_torpedo;
 	auto spriteFrame = SpriteFrameCache::getInstance()->getSpriteFrameByName(PATH_WARSHIP_1_PICTURE);
 	initWithSpriteFrame(spriteFrame);
 
@@ -105,6 +105,28 @@ void Warship::repeatShoot_torpedo(float dt){
 	auto sequence = Sequence::create(actionMove, actionDone, nullptr);
 	weapon->setVisible(true);
 	weapon->runAction(sequence);
+}
+
+void Warship::changeWeaponType(){
+	weaponType = weapon_lasor;
+	shoot();
+	schedule(schedule_selector(Warship::resetWeapon), 8);
+}
+
+void Warship::addHP(int delta_hp){
+	if (hp + delta_hp <= WARSHIP_MAX_HP){
+		hp += delta_hp;
+		log("hp=%d", hp);
+	}
+	else{
+		hp = WARSHIP_MAX_HP;
+		log("hp=%d", hp);
+	}
+}
+
+void Warship::resetWeapon(float dt){
+	weaponType = weapon_torpedo;
+	shoot();
 }
 
 void Warship::repeatShoot_lasor(float dt){

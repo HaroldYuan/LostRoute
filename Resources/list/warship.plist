@@ -4,18 +4,18 @@
     <dict>
         <key>frames</key>
         <dict>
-            <key>warship_1.png</key>
+            <key>warship.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,2},{126,76}}</string>
+                <string>{{2,2},{98,60}}</string>
                 <key>offset</key>
                 <string>{-1,0}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{0,3},{126,76}}</string>
+                <string>{{0,1},{98,60}}</string>
                 <key>sourceSize</key>
-                <string>{128,82}</string>
+                <string>{100,62}</string>
             </dict>
         </dict>
         <key>metadata</key>
@@ -25,9 +25,9 @@
             <key>realTextureFileName</key>
             <string>warship.png</string>
             <key>size</key>
-            <string>{130,80}</string>
+            <string>{102,65}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:07ce524a00b1e0f934c79d00be677df0$</string>
+            <string>$TexturePacker:SmartUpdate:031f981d80c01161daa0cc0a8db44991$</string>
             <key>textureFileName</key>
             <string>warship.png</string>
         </dict>

@@ -33,6 +33,9 @@ bool LostRouteGameLayer::init(){
 	mEnemyLayer = EnemyLayer::create();
 	addChild(mEnemyLayer);
 
+	mDropLayer = DropLayer::create();
+	addChild(mDropLayer);
+
 	auto contactListener = EventListenerPhysicsContact::create();
 	contactListener->onContactBegin = CC_CALLBACK_1(LostRouteGameLayer::onContactBegin, this);
 
@@ -61,6 +64,55 @@ bool LostRouteGameLayer::onContactBegin(PhysicsContact& contact){
 				if (bodyA->isWeapon && bodyB->isWeapon){
 					return true;
 				}
+				//对Drop进行碰撞检测
+				auto drop1 = dynamic_cast<Drop*>(bodyA);
+				auto drop2 = dynamic_cast<Drop*>(bodyB);
+
+				//如果两个碰撞的Body都是Drop,忽略
+				if (drop1 != nullptr && drop2 != nullptr)
+				{
+					return true;
+				}
+				auto warship1 = dynamic_cast<Warship*>(bodyA);
+				auto warship2 = dynamic_cast<Warship*>(bodyB);
+
+				//如果两个碰撞的Body，一个是Drop,另一个不是飞船，忽略
+				if (drop1 != nullptr && warship2 == nullptr)
+				{
+					return true;
+				}
+				if (drop2 != nullptr && warship1 == nullptr)
+				{
+					return true;
+				}
+
+				Drop* drop = nullptr;
+				Warship* warship = nullptr;
+
+				if (drop1 != nullptr && warship2 != nullptr){
+					//bodyA为Drop,bodyB为Warship
+					drop = drop1;
+					warship = warship2;
+				}
+				else if (drop2 != nullptr && warship1 != nullptr){
+					//bodyB为Drop,bodyA为Warship
+					drop = drop2;
+					warship = warship1;
+				}
+
+				if (drop != nullptr && warship != nullptr){
+					if (drop->dropType == Drop::addBullet){
+						warship->changeWeaponType();
+						drop->hideDrop();
+						return true;
+					}
+					else{
+						warship->addHP(15);
+						drop->hideDrop();
+						return true;
+					}
+				}
+
 				int hpA = bodyA->hp;
 				int hpB = bodyB->hp;
 
