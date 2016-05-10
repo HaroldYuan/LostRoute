@@ -2,8 +2,10 @@
 #define BigEnemy_h__
 
 #include "cocos2d.h"
+#include "SimpleAudioEngine.h"
 #include "BodyParent.h"
 USING_NS_CC;
+using namespace CocosDenshion;
 
 class BigEnemy :public BodyParent
 {

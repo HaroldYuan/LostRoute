@@ -2,12 +2,15 @@
 #define LostRouteGameLayer_h__
 
 #include "cocos2d.h"
+#include "SimpleAudioEngine.h"
 #include "Resources.h"
 #include "WarshipLayer.h"
 #include "EnemyLayer.h"
 #include "DropLayer.h"
 
 USING_NS_CC;
+using namespace CocosDenshion;
+
 class LostRouteGameLayer :public Layer{
 private:
 	Sprite*         bg1;

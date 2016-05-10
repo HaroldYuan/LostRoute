@@ -7,14 +7,15 @@
 #include "WeaponLayer.h"
 #include "WarshipWeapon2.h"
 #include "WarshipWeapon1.h"
+#include "SimpleAudioEngine.h"
 USING_NS_CC;
+
+using namespace CocosDenshion;
 
 class Warship :public BodyParent
 {
 public:
 	virtual bool init();
-
-	void setWeaponLayer(WeaponLayer* weaponLayer);
 
 	//飞船发射的武器类型
 	void shoot();

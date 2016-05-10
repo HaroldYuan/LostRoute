@@ -70,6 +70,7 @@ bool Warship::init(){
 	hp = WARSHIP_MAX_HP;
 	setTag(Hero);
 	isWeapon = false;
+
 	return true;
 }
 
@@ -105,28 +106,29 @@ void Warship::repeatShoot_torpedo(float dt){
 	auto sequence = Sequence::create(actionMove, actionDone, nullptr);
 	weapon->setVisible(true);
 	weapon->runAction(sequence);
+	SimpleAudioEngine::getInstance()->playEffect(PATH_WARSHIP_WEAPON_MUSIC);
 }
 
 void Warship::changeWeaponType(){
 	weaponType = weapon_lasor;
 	shoot();
-	schedule(schedule_selector(Warship::resetWeapon), 8);
+	scheduleOnce(schedule_selector(Warship::resetWeapon), 8);
+	SimpleAudioEngine::getInstance()->playEffect(PATH_SWITCHWEAPON_MUSIC, false);
 }
 
 void Warship::addHP(int delta_hp){
 	if (hp + delta_hp <= WARSHIP_MAX_HP){
 		hp += delta_hp;
-		log("hp=%d", hp);
 	}
 	else{
 		hp = WARSHIP_MAX_HP;
-		log("hp=%d", hp);
 	}
 }
 
 void Warship::resetWeapon(float dt){
 	weaponType = weapon_torpedo;
 	shoot();
+	SimpleAudioEngine::getInstance()->playEffect(PATH_SWITCHWEAPON_MUSIC, false);
 }
 
 void Warship::repeatShoot_lasor(float dt){
@@ -169,11 +171,13 @@ void Warship::repeatShoot_lasor(float dt){
 
 		weapon->runAction(sequence);
 	}
+	SimpleAudioEngine::getInstance()->playEffect(PATH_WARSHIP_WEAPON_MUSIC);
 }
 
 void Warship::explode(){
 	Explosion explosion;
 	explosion.explode(this, Hero);
+	SimpleAudioEngine::getInstance()->playEffect(PATH_WARSHIP_EXPLOSION_MUSIC, false);
 }
 
 void Warship::shoot(){

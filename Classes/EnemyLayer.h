@@ -69,5 +69,7 @@ public:
 
 private:
 	WeaponLayer* myWeaponLayer;
+
+	//MoveToBezierLeftAction* ac1;
 };
 #endif // EnemyLayer_h__

@@ -7,6 +7,7 @@
 void SmallEnemy2::explode(){
 	Explosion explosion;
 	explosion.explode(this, Enemy);
+	SimpleAudioEngine::getInstance()->playEffect(PATH_ENEMY_EXPLOSION_MUSIC, false);
 }
 
 bool SmallEnemy2::init(){

@@ -21,3 +21,10 @@ void BodyParent::collide(){
 
 void BodyParent::explode(){
 }
+
+bool BodyParent::init(){
+	if (!Sprite::init()){
+		return false;
+	}
+	return true;
+}

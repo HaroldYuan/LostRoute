@@ -16,6 +16,10 @@ public:
 	//用于产生爆炸效果的特效
 	virtual void explode();
 
+	virtual bool init();
+
+	CREATE_FUNC(BodyParent);
+
 	//用于敌机恢复为初始状态
 	virtual void clear(){}
 

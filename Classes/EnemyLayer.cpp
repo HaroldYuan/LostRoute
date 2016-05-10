@@ -37,15 +37,19 @@ bool EnemyLayer::init(){
 void EnemyLayer::EnemyMove(float dt){
 	if (statusArray[MoveToBezierLeft]){
 		schedule(schedule_selector(EnemyLayer::addSmallEnemy_MoveToBezierLeft), 0.5, 10, 0);
+		return;
 	}
 	if (statusArray[MoveToBezierRight]){
 		schedule(schedule_selector(EnemyLayer::addSmallEnemy_MoveToBezierRight), 0.5, 10, 0);
+		return;
 	}
 	if (statusArray[MoveToUiniform]){
 		schedule(schedule_selector(EnemyLayer::addSmallEnemy_MoveToUniform), 1, 2, 0);
+		return;
 	}
 	if (statusArray[MoveToLine]){
 		schedule(schedule_selector(EnemyLayer::addBigEnemy_MoveTo), 1, 2, 0);
+		return;
 	}
 }
 

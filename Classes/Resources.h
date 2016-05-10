@@ -28,8 +28,27 @@
 #define PATH_DROP_ADDLIFE_PICTURE   "blood.png"
 #define PATH_DROP_PLIST "list/drop.plist"
 
+//背景音乐
+#define PATH_BACKGROUND_MUSIC "sounds/background_music.wav"
+
+//飞船发射音效
+#define PATH_WARSHIP_WEAPON_MUSIC "sounds/warship_weapon.wav"
+
+//敌机发射音效
+#define PATH_ENEMY_WEAPON_MUSIC "sounds/enemy_weapon.wav"
+
+//子弹切换音效
+#define PATH_SWITCHWEAPON_MUSIC "sounds/switch_weapon.wav"
+
+//Drop音效
+#define PATH_DROP_MUSIC "sounds/bonus.wav"
+
+//爆炸音效
+#define PATH_ENEMY_EXPLOSION_MUSIC "sounds/enemy_explosion.wav"
+#define PATH_WARSHIP_EXPLOSION_MUSIC "sounds/warship_explosion.wav"
+
 //飞船生命值
-#define  WARSHIP_MAX_HP 30
+#define  WARSHIP_MAX_HP 40
 
 //小型敌机1生命值
 #define  SmallEnemy1_MAX_HP 2

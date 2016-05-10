@@ -44,6 +44,8 @@ bool LostRouteGameLayer::init(){
 
 	scheduleUpdate();
 
+	SimpleAudioEngine::getInstance()->playBackgroundMusic(PATH_BACKGROUND_MUSIC, true);
+
 	return true;
 }
 
@@ -101,13 +103,14 @@ bool LostRouteGameLayer::onContactBegin(PhysicsContact& contact){
 				}
 
 				if (drop != nullptr && warship != nullptr){
+					SimpleAudioEngine::getInstance()->playEffect(PATH_DROP_MUSIC, false);
 					if (drop->dropType == Drop::addBullet){
 						warship->changeWeaponType();
 						drop->hideDrop();
 						return true;
 					}
 					else{
-						warship->addHP(15);
+						warship->addHP(10);
 						drop->hideDrop();
 						return true;
 					}
@@ -128,9 +131,9 @@ bool LostRouteGameLayer::onContactBegin(PhysicsContact& contact){
 void LostRouteGameLayer::moveBackground(Size &size){
 	//移动背景
 	bg1->setPosition(bg1->getPositionX(), bg1->getPositionY()
-		- 4);
+		- 2);
 	bg2->setPosition(bg2->getPositionX(), bg2->getPositionY()
-		- 4);
+		- 2);
 	if (bg2->getPositionY() < 0){
 		auto bg1Y = bg2->getPositionY() + size.height;
 		bg1->setPosition(bg2->getPositionX(), bg1Y);
@@ -142,9 +145,9 @@ void LostRouteGameLayer::moveBackground(Size &size){
 
 	//移动云背景
 	bgCloud1->setPosition(bgCloud1->getPositionX(), bgCloud1->getPositionY()
-		- 3);
+		- 1.5);
 	bgCloud2->setPosition(bgCloud2->getPositionX(), bgCloud2->getPositionY()
-		- 3);
+		- 1.5);
 	if (bgCloud2->getPositionY() < 0){
 		auto bgCloud1Y = bgCloud2->getPositionY() + size.height;
 		bgCloud1->setPosition(bgCloud2->getPositionX(), bgCloud1Y);

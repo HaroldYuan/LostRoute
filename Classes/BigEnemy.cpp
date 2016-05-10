@@ -72,6 +72,7 @@ void BigEnemy::repeatShoot(float dt){
 
 	leftWeapon->runAction(actionSequenceLeftWeapon);
 	rightWeapon->runAction(actionSequenceRightWeapon);
+	SimpleAudioEngine::getInstance()->playEffect(PATH_ENEMY_WEAPON_MUSIC, false);
 }
 
 void BigEnemy::clear(){
@@ -86,4 +87,5 @@ void BigEnemy::clear(){
 void BigEnemy::explode(){
 	Explosion explosion;
 	explosion.explode(this, Enemy);
+	SimpleAudioEngine::getInstance()->playEffect(PATH_ENEMY_EXPLOSION_MUSIC, false);
 }

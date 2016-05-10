@@ -61,11 +61,13 @@ void SmallEnemy1::repeatShoot(float dt){
 	auto sequence = Sequence::create(actionMove, actionDone, nullptr);
 
 	weapon->runAction(sequence);
+	SimpleAudioEngine::getInstance()->playEffect(PATH_ENEMY_WEAPON_MUSIC, false);
 }
 
 void SmallEnemy1::explode(){
 	Explosion explosion;
 	explosion.explode(this, Enemy);
+	SimpleAudioEngine::getInstance()->playEffect(PATH_ENEMY_EXPLOSION_MUSIC, false);
 }
 
 void SmallEnemy1::clear(){
