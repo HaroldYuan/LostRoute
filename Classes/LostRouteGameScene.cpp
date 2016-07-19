@@ -1,15 +1,15 @@
 #include "LostRouteGameScene.h"
 #include "LostRouteGameLayer.h"
 
-void LostRouteGameScene::run()
+Scene* LostRouteGameScene::createScene()
 {
-	// 'layer' is an autorelease object
+	auto scene = Scene::createWithPhysics();
 	auto layer = LostRouteGameLayer::create();
 	if (layer != nullptr){
-		addChild(layer);
+		scene->addChild(layer);
 		Vect gravity = Vect(0.0f, 0.0f);
-		getPhysicsWorld()->setGravity(gravity);
+		scene->getPhysicsWorld()->setGravity(gravity);
 		//getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
-		Director::getInstance()->runWithScene(this);
+		return scene;
 	}
 }

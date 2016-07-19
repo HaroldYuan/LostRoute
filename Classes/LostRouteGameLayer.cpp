@@ -27,14 +27,17 @@ bool LostRouteGameLayer::init(){
 
 	addChild(WeaponLayer::getInstance());
 
-	myWarshipLayer = WarshipLayer::create();
-	addChild(myWarshipLayer);
+	mWarshipLayer = WarshipLayer::create();
+	addChild(mWarshipLayer);
 
 	mEnemyLayer = EnemyLayer::create();
 	addChild(mEnemyLayer);
 
 	mDropLayer = DropLayer::create();
 	addChild(mDropLayer);
+
+	mStatusLayer = StatusLayer::create();
+	addChild(mStatusLayer);
 
 	auto contactListener = EventListenerPhysicsContact::create();
 	contactListener->onContactBegin = CC_CALLBACK_1(LostRouteGameLayer::onContactBegin, this);
@@ -116,11 +119,22 @@ bool LostRouteGameLayer::onContactBegin(PhysicsContact& contact){
 					}
 				}
 
-				int hpA = bodyA->hp;
-				int hpB = bodyB->hp;
+				int hpA = bodyA->currentHp;
+				int hpB = bodyB->currentHp;
 
-				bodyA->collide(hpB);
-				bodyB->collide(hpA);
+				bool result1 = bodyA->collide(hpB);
+				bool result2 = bodyB->collide(hpA);
+
+				if (bodyA->isWeapon &&bodyB->getTag() == Enemy){
+					if (result2){
+						mStatusLayer->addScore(bodyB->maxHp * 10);
+					}
+				}
+				else if (bodyB->isWeapon &&bodyA->getTag() == Enemy){
+					if (result1){
+						mStatusLayer->addScore(bodyA->maxHp * 10);
+					}
+				}
 			}
 		}
 	}
@@ -162,4 +176,12 @@ void LostRouteGameLayer::update(float time){
 	auto size = Director::getInstance()->getWinSize();
 	//移动背景
 	moveBackground(size);
+	mStatusLayer->updateHP(mWarshipLayer->warship->currentHp);
+	log("currentHp: %d", mWarshipLayer->warship->currentHp);
+	if (mWarshipLayer->warship->currentHp <= 0 || !mWarshipLayer->warship->isVisible()){
+		mStatusLayer->updateHP(0);
+		mWarshipLayer->warship->setVisible(true);
+		Director::getInstance()->pause();
+		SimpleAudioEngine::getInstance()->pauseBackgroundMusic();
+	}
 }

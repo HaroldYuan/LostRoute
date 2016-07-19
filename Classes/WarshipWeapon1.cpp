@@ -14,7 +14,8 @@ bool WarshipWeapon1::init(){
 	body->setContactTestBitmask(0x03);    //0011
 	body->setCollisionBitmask(0x02);      //0010
 
-	hp = 1;
+	currentHp = 1;
+	maxHp = 1;
 	isWeapon = true;
 	setTag(Hero);
 	return true;

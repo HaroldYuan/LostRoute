@@ -5,6 +5,6 @@
 USING_NS_CC;
 class LostRouteGameScene :public Scene{
 public:
-	void run();
+	static Scene* createScene();
 };
 #endif // LostRouteGameScene_h__

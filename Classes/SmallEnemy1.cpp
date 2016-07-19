@@ -24,7 +24,7 @@ bool SmallEnemy1::init(){
 	body->setContactTestBitmask(0x03);    //0011
 	body->setCollisionBitmask(0x02);      //0010
 
-	hp = SmallEnemy1_MAX_HP;       //当前敌机的生命值
+	currentHp = SmallEnemy1_MAX_HP;       //当前敌机的生命值
 	isWeapon = false;
 	setTag(Enemy);
 	return true;
@@ -42,7 +42,6 @@ void SmallEnemy1::repeatShoot(float dt){
 	if (weapon->getParent() == nullptr){
 		WeaponLayer::getInstance()->addChild(weapon);
 	}
-	WeaponLayer::getInstance()->weaponContainer->addObject(weapon);
 
 	//敌机子弹起始坐标
 	auto weaponStartX = getPositionX();
@@ -74,7 +73,5 @@ void SmallEnemy1::clear(){
 	stopAllActions();
 	setVisible(false);
 	node = nullptr;
-	missle = nullptr;
-	selected = false;
 	unscheduleAllSelectors();
 }

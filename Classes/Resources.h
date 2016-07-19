@@ -28,6 +28,18 @@
 #define PATH_DROP_ADDLIFE_PICTURE   "blood.png"
 #define PATH_DROP_PLIST "list/drop.plist"
 
+//StatusÕº∆¨
+#define PATH_NUMBERS_PICTURE  "img_num_dis.png"
+#define PATH_NUMBERS_PLIST    "list/img_num_dis.plist"
+#define PATH_LIFEBAR_FG_PICTURE  "ui_bar_fg.png"
+#define PATH_LIFEBAR_BG_PICTURE   "ui_bar_bg.png"
+#define PATH_LIFEBAR_PLIST    "list/lifebar.plist"
+
+//UIÕº∆¨
+#define PATH_BUTTON_NORMAL_PICTURE "ui_btn_normal.png"
+#define PATH_BUTTON_PAUSE_PICTURE   "ui_btn_pause.png"
+#define PATH_UI_PLIST  "list/ui.plist"
+
 //±≥æ∞“Ù¿÷
 #define PATH_BACKGROUND_MUSIC "sounds/background_music.wav"
 

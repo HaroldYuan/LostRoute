@@ -7,6 +7,7 @@
 #include "WarshipLayer.h"
 #include "EnemyLayer.h"
 #include "DropLayer.h"
+#include "StatusLayer.h"
 
 USING_NS_CC;
 using namespace CocosDenshion;
@@ -18,10 +19,11 @@ private:
 	Sprite*         bgCloud1;
 	Sprite*         bgCloud2;
 
-	WarshipLayer*   myWarshipLayer;
+	WarshipLayer*   mWarshipLayer;
 	WeaponLayer*    mWeaponLayer;
 	EnemyLayer*     mEnemyLayer;
 	DropLayer*      mDropLayer;
+	StatusLayer*    mStatusLayer;
 private:
 	//¹ö¶¯±³¾°Í¼
 	void moveBackground(Size &size);

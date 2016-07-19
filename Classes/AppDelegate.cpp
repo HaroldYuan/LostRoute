@@ -39,6 +39,11 @@ bool AppDelegate::applicationDidFinishLaunching() {
 	SpriteFrameCache::getInstance()->addSpriteFramesWithFile(PATH_ENEMY_PLIST);
 	//¼ÓÔØDropÀà¾«ÁéÖ¡»º´æ
 	SpriteFrameCache::getInstance()->addSpriteFramesWithFile(PATH_DROP_PLIST);
+	//¼ÓÔØStatus¾«Áé»º´æ
+	SpriteFrameCache::getInstance()->addSpriteFramesWithFile(PATH_LIFEBAR_PLIST);
+	SpriteFrameCache::getInstance()->addSpriteFramesWithFile(PATH_NUMBERS_PLIST);
+	//¼ÓÔØUI¾«Áé»º´æ
+	SpriteFrameCache::getInstance()->addSpriteFramesWithFile(PATH_UI_PLIST);
 
 	//³õÊ¼»¯±³¾°ÒôÀÖ
 	SimpleAudioEngine::getInstance()->preloadBackgroundMusic(PATH_BACKGROUND_MUSIC);
@@ -52,10 +57,9 @@ bool AppDelegate::applicationDidFinishLaunching() {
 	SimpleAudioEngine::getInstance()->preloadEffect(PATH_SWITCHWEAPON_MUSIC);
 
 	// create a scene. it's an autorelease object
-	auto scene = (LostRouteGameScene*)LostRouteGameScene::createWithPhysics();
+	auto scene = LostRouteGameScene::createScene();
 	// run
-	//director->runWithScene(scene);
-	scene->run();
+	director->runWithScene(scene);
 	return true;
 }
 

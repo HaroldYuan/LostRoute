@@ -19,7 +19,8 @@ bool BigEnemy::init(){
 	body->setContactTestBitmask(0x03);    //0011
 	body->setCollisionBitmask(0x02);      //0010
 
-	hp = BigEnemy_MAX_HP;            //当前敌机的生命值
+	currentHp = BigEnemy_MAX_HP;            //当前敌机的生命值
+	maxHp = BigEnemy_MAX_HP;
 	isWeapon = false;
 	setTag(Enemy);
 	return true;
@@ -55,9 +56,6 @@ void BigEnemy::repeatShoot(float dt){
 	myWeaponLayer->addChild(leftWeapon);
 	myWeaponLayer->addChild(rightWeapon);
 
-	myWeaponLayer->weaponContainer->addObject(leftWeapon);
-	myWeaponLayer->weaponContainer->addObject(rightWeapon);
-
 	//子弹移动速度
 	auto moveDuration = 2 * (leftWeaponStartY - leftWeaponEndY) / size.height;
 
@@ -79,8 +77,6 @@ void BigEnemy::clear(){
 	stopAllActions();
 	setVisible(false);
 	node = nullptr;
-	missle = nullptr;
-	selected = false;
 	unscheduleAllSelectors();
 }
 

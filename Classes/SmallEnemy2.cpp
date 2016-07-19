@@ -28,7 +28,7 @@ bool SmallEnemy2::init(){
 	body->setContactTestBitmask(0x03);    //0011
 	body->setCollisionBitmask(0x02);      //0010
 
-	hp = SmallEnemy2_MAX_HP;          //当前敌机的生命值
+	currentHp = SmallEnemy2_MAX_HP;          //当前敌机的生命值
 	isWeapon = false;
 	setTag(Enemy);
 	return true;
@@ -38,7 +38,5 @@ void SmallEnemy2::clear(){
 	stopAllActions();
 	setVisible(false);
 	node = nullptr;
-	missle = nullptr;
-	selected = false;
 	unscheduleAllSelectors();
 }

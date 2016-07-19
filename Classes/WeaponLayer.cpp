@@ -4,9 +4,6 @@
 WeaponLayer* WeaponLayer::sharedWeaponLayer = nullptr;
 
 WeaponLayer::WeaponLayer(){
-	weaponContainer = __Array::create();
-	weaponContainer->retain();
-
 	warshipWeapon1_Pool = __Array::create();
 	warshipWeapon1_Pool->retain();
 
@@ -45,7 +42,6 @@ bool WeaponLayer::init(){
 void WeaponLayer::weaponMovedFinished(Node* sender){
 	auto weapon = dynamic_cast<BodyParent*>(sender);
 	if (weapon != nullptr){
-		weaponContainer->removeObject(weapon);
 		auto wshipWeapon1 = dynamic_cast<WarshipWeapon1*>(weapon);
 		if (wshipWeapon1 != nullptr){
 			wshipWeapon1->clear();
@@ -104,10 +100,6 @@ SmallEnemyWeapon* WeaponLayer::produceSmallEnemyWeapon(){
 }
 
 WeaponLayer::~WeaponLayer(){
-	//weaponContainer->removeAllObjects();
-	weaponContainer->release();
-	weaponContainer = nullptr;
-
 	warshipWeapon1_Pool->release();
 	warshipWeapon1_Pool = nullptr;
 

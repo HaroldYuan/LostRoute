@@ -24,10 +24,9 @@ public:
 	virtual void clear(){}
 
 public:
-	int hp = 1;     //当前Body的生命值
-	bool selected = false;     //当前是否被导弹选中
+	int currentHp = 1;     //当前Body的生命值
+	int maxHp = 1;  //Body的最大生命值
 	BodyParent* node = nullptr; //保存于当前Body关联的Node
-	BodyParent* missle = nullptr;
 	bool isWeapon;
 };
 #endif // _Body_Parent

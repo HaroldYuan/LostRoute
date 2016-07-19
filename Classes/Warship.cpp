@@ -66,8 +66,8 @@ bool Warship::init(){
 	};
 
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
-
-	hp = WARSHIP_MAX_HP;
+	currentHp = WARSHIP_MAX_HP;
+	maxHp = WARSHIP_MAX_HP;
 	setTag(Hero);
 	isWeapon = false;
 
@@ -89,7 +89,6 @@ void Warship::repeatShoot_torpedo(float dt){
 	if (weapon->getParent() == nullptr){
 		WeaponLayer::getInstance()->addChild(weapon);
 	}
-	WeaponLayer::getInstance()->weaponContainer->addObject(weapon);
 	//设置光子鱼雷移动速度
 	//bug:导致飞机接近屏幕边缘，子弹无法从屏幕移除(飞机接时近边缘时，size.height - weaponStartY为负值）
 	//auto moveDuration = 2 * (size.height - weaponStartY) / size.height;
@@ -117,11 +116,11 @@ void Warship::changeWeaponType(){
 }
 
 void Warship::addHP(int delta_hp){
-	if (hp + delta_hp <= WARSHIP_MAX_HP){
-		hp += delta_hp;
+	if (currentHp + delta_hp <= WARSHIP_MAX_HP){
+		currentHp += delta_hp;
 	}
 	else{
-		hp = WARSHIP_MAX_HP;
+		currentHp = WARSHIP_MAX_HP;
 	}
 }
 
@@ -154,8 +153,6 @@ void Warship::repeatShoot_lasor(float dt){
 		if (weapon->getParent() == nullptr){
 			WeaponLayer::getInstance()->addChild(weapon);
 		}
-
-		WeaponLayer::getInstance()->weaponContainer->addObject(weapon);
 
 		//设置激光束终点坐标
 		auto weaponEndX = weaponStartX;

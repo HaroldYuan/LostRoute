@@ -29,8 +29,6 @@ private:
 	WeaponLayer();
 
 public:
-	__Array* weaponContainer;  //保存当前所有正在飞行的武器
-
 	__Array* warshipWeapon1_Pool;//保存飞船发射的激光束
 
 	__Array* warshipWeapon2_Pool;//保存飞船发射的光子鱼雷

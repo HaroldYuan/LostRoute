@@ -1,7 +1,7 @@
 #include "BodyParent.h"
 
 bool BodyParent::collide(int lethality){
-	if (lethality >= hp){
+	if (lethality >= currentHp){
 		//被摧毁
 		explode();
 		collide();
@@ -9,7 +9,7 @@ bool BodyParent::collide(int lethality){
 	}
 	else
 	{
-		hp -= lethality; //减去对方的杀伤力指数
+		currentHp -= lethality; //减去对方的杀伤力指数
 		return false;
 	}
 }
