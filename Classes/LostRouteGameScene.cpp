@@ -9,7 +9,7 @@ Scene* LostRouteGameScene::createScene()
 		scene->addChild(layer);
 		Vect gravity = Vect(0.0f, 0.0f);
 		scene->getPhysicsWorld()->setGravity(gravity);
-		//getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
+		//scene->getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
 		return scene;
 	}
 }
