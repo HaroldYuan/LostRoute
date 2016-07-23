@@ -176,12 +176,14 @@ void LostRouteGameLayer::update(float time){
 	auto size = Director::getInstance()->getWinSize();
 	//移动背景
 	moveBackground(size);
-	mStatusLayer->updateHP(mWarshipLayer->warship->currentHp);
-	log("currentHp: %d", mWarshipLayer->warship->currentHp);
 	if (mWarshipLayer->warship->currentHp <= 0 || !mWarshipLayer->warship->isVisible()){
 		mStatusLayer->updateHP(0);
 		mWarshipLayer->warship->setVisible(true);
 		Director::getInstance()->pause();
 		SimpleAudioEngine::getInstance()->pauseBackgroundMusic();
+	}
+	else{
+		mStatusLayer->updateHP(mWarshipLayer->warship->currentHp);
+		log("currentHp: %d", mWarshipLayer->warship->currentHp);
 	}
 }
